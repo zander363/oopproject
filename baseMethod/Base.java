@@ -4,6 +4,7 @@ import basicClass.Ticket;
 import java.Time;
 
 public class BookAndRefund{
+    //可...可惡
 
 	public static User searchUser(String name,int age);
 	public static Ticket book(User user,Movie movie,LocalTime time,int n);
