@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main2Activity" />
+        <activity android:name=".booking1" />
         <activity android:name=".search" />
         <activity android:name=".refund1" />
         <activity android:name=".conditional_booking1" />
@@ -30,8 +30,8 @@
         <activity android:name=".search_rate2" />
         <activity android:name=".search_time1" />
         <activity android:name=".search_time2" />
-        <activity android:name=".search_movie_ID1" />
-        <activity android:name=".search_movie_ID2" />
+        <activity android:name=".search_movie_id1" />
+        <activity android:name=".search_movie_id2" />
         <activity android:name=".search_ticket1" />
         <activity android:name=".search_ticket2" />
         <activity android:name=".search_conditional_search_movie1" />

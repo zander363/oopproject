@@ -22,7 +22,7 @@
         tools:layout_editor_absoluteY="66dp" />
 
     <TextView
-        android:id="@+id/~"
+        android:id="@+id/a"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -52,7 +52,7 @@
         tools:layout_editor_absoluteY="272dp" />
 
     <TextView
-        android:id="@+id/~"
+        android:id="@+id/b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -60,7 +60,7 @@
         tools:layout_editor_absoluteY="327dp" />
 
     <Spinner
-        android:id="@+id/lower_movie_lentgh_spinner"
+        android:id="@+id/lower_movie_length_spinner"
         android:layout_width="368dp"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="8dp"
