@@ -17,7 +17,19 @@ public class BookAndRefund{
 	 *
 	 *@param name is the name of the user.
 	 *@param age is the age of the user.
-	 *@return User this is a object to transfer all data in program.
+	 *@return User this is an object to transfer all data in program.
 	 */
 	public static User searchUser(String name,int age);
+	/**
+	 * this method is use to construct a Movie object by id.
+	 *
+	 *@return Movie this is an object to transfer all data in program.
+	 */
+	public static Movie searchMovie(int id);
+	/**
+	 * this method is use to construct a Seat object by id.
+	 *
+	 *@return Seat this is an object to transfer all data in program.
+	 */
+	public static Seat searchSeat(int id);
 }
