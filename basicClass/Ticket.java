@@ -6,10 +6,9 @@ public class Ticket{
 	public Ticket();
 	public Ticket(int userId,int movieID,int seatId,int ticketID);
 	/**
-	 *this method reportCode is use to check
-	 *whether there are any problem in the proccess of gernerating object.
 	 *
-	 *
-	 *@return the int is mean the different situation defined by ourselves.
+	 * this method is to show information 
+	 * about this ticket(expect for search)
+	 * @return String is mean the text suppose to show to user. 
 	 */
-	public int reportCode();
+	public String showInfo();
