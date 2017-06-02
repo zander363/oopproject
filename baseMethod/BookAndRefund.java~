@@ -6,6 +6,15 @@ import java.Time;
 public class BookAndRefund{
 
 	/*
+	 *this method is use to search the database
+	 *,return the corresponding data when it exist,or return NULL; 
+	 *
+	 *@param name is the name of the user.
+	 *@param age is the age of the user.
+	 *@return User this is a object to transfer all data in program.
+	 */
+	public static User searchUser(String name,int age);
+	/*
 	 *this method is use to check whether the fittable seat can be booked.
 	 *
 	 *@param user is mean the user who intend to book the tickets.
