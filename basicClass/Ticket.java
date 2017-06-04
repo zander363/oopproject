@@ -9,6 +9,8 @@ public class Ticket{
 	 *
 	 * this method is to show information 
 	 * about this ticket(expect for search)
+	 *
 	 * @return String is mean the text suppose to show to user. 
 	 */
 	public String showInfo();
+}
