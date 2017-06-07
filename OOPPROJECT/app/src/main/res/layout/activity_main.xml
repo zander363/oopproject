@@ -8,60 +8,69 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
+        android:gravity="center"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
         <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:stretchColumns="0,1">
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
                 android:gravity="center">
 
                 <ImageButton
                     android:id="@+id/booking"
-                    android:layout_width="180dp"
-                    android:layout_height="180dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:adjustViewBounds="true"
+                    android:src="@android:drawable/btn_star"
+                    android:visibility="visible"
                     app:srcCompat="@mipmap/ic_launcher" />
 
                 <ImageButton
                     android:id="@+id/refund"
-                    android:layout_width="180dp"
-                    android:layout_height="180dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/refund"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintLeft_toLeftOf="@+id/conditional_booking"
-                    app:layout_constraintRight_toRightOf="@+id/conditional_booking"
-                    app:layout_constraintTop_toTopOf="@+id/refund"
-                    app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@mipmap/ic_launcher_round"
-                    tools:layout_constraintBottom_creator="1"
-                    tools:layout_constraintLeft_creator="1"
-                    tools:layout_constraintRight_creator="1"
-                    tools:layout_constraintTop_creator="1" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:adjustViewBounds="true"
+                    android:src="@android:drawable/btn_star"
+                    android:visibility="visible"
+                    app:srcCompat="@android:drawable/ic_delete" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/booking"
-                    android:layout_width="200dp"
+                    android:id="@+id/textbooking"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="訂票"
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/refund"
-                    android:layout_width="200dp"
+                    android:id="@+id/textrefund"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="退票"
@@ -71,37 +80,54 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
                 android:gravity="center">
 
                 <ImageButton
                     android:id="@+id/conditional_booking"
-                    android:layout_width="180dp"
-                    android:layout_height="180dp"
-                    app:srcCompat="@mipmap/ic_launcher" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:adjustViewBounds="true"
+                    android:src="@android:drawable/btn_star"
+                    android:visibility="visible"
+                    app:srcCompat="@mipmap/ic_launcher_round" />
 
                 <ImageButton
                     android:id="@+id/search"
-                    android:layout_width="180dp"
-                    android:layout_height="180dp"
-                    app:srcCompat="@mipmap/ic_launcher" />
-
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:adjustViewBounds="true"
+                    android:src="@android:drawable/btn_star"
+                    android:visibility="visible"
+                    app:srcCompat="@android:drawable/ic_search_category_default" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="5dp"
                 android:gravity="center">
 
                 <TextView
-                    android:id="@+id/conditional_booking"
-                    android:layout_width="200dp"
+                    android:id="@+id/textconditionalbooking"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="條件訂票"
                     android:textSize="24sp" />
 
                 <TextView
-                    android:id="@+id/search"
+                    android:id="@+id/textsearch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -109,7 +135,6 @@
                     android:textSize="24sp" />
             </TableRow>
         </TableLayout>
-
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
