@@ -13,8 +13,10 @@ public class UserRS{
 		return user;
 	}
 	@POST
-	@Path("/rate/{user}")
-	public String getMovie(int user){
-		return user;
+	@Path("/new")
+	public int getMovie(@PathParam("name") String name,
+			@QueryParam("old")@DefaultValue("1")int old){
+		id=1;
+		return id;
 	}
 }
