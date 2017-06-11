@@ -3,7 +3,7 @@ import basicClass.User;
 import basicClass.Ticket;
 import java.Time;
 
-public class BookAndRefund{
+public class Base{
 
 	/**
 	 *this method is to load the movies running schedule when the app start.

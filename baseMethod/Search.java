@@ -3,7 +3,7 @@ import basicClass.User;
 import basicClass.Ticket;
 import java.Time;
 
-public class search{
+public class Search{
 	/**
 	 * this method is to select the movies have a good rate.
 	 * @param rate is mean the least rate user except. 
