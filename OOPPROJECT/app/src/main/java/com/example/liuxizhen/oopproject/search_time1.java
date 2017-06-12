@@ -1,16 +1,17 @@
 package com.example.liuxizhen.oopproject;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import android.app.TimePickerDialog;
 import android.app.TimePickerDialog.OnTimeSetListener;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
+
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class search_time1 extends AppCompatActivity {
     private Button start_time;
