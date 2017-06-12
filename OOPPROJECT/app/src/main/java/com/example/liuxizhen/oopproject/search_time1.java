@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import basicClass.*;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -21,14 +22,20 @@ public class search_time1 extends AppCompatActivity {
     private TimePickerDialog timePickerDialog2;
     private TimePickerDialog timePickerDialog;
     private Button confirmation;
+    public ourtime start_ourtime;
+    public ourtime end_ourtime;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_time1);
         start_time = (Button) findViewById(R.id.timestart);
         end_time = (Button) findViewById(R.id.timeend);
-        timetext =(TextView) findViewById(R.id.time);
+        timetext =(TextView) findViewById(R.id.time1);
         timetext2 =(TextView) findViewById(R.id.time2);
         confirmation =(Button) findViewById(R.id.confirmation);
         GregorianCalendar calendar = new GregorianCalendar();
@@ -39,6 +46,7 @@ public class search_time1 extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setClass(search_time1.this, search_time2.class);
                 startActivity(intent);
+
             }
         });
 
@@ -50,6 +58,8 @@ public class search_time1 extends AppCompatActivity {
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 timetext.setText((hourOfDay > 12 ? hourOfDay - 12 : hourOfDay)
                         + ":" + minute + " " + (hourOfDay > 12 ? "PM" : "AM"));
+                start_ourtime = new ourtime(hourOfDay,minute);
+
             }
         }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(calendar.MINUTE),
                 false);
@@ -60,6 +70,7 @@ public class search_time1 extends AppCompatActivity {
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 timetext2.setText((hourOfDay > 12 ? hourOfDay - 12 : hourOfDay)
                         + ":" + minute + " " + (hourOfDay > 12 ? "PM" : "AM"));
+                end_ourtime = new ourtime(hourOfDay,minute);
             }
         }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(calendar.MINUTE),
                 false);

@@ -9,6 +9,7 @@ public class Movie{
 	public int level;
 	public String place;
 	public Movie() {
+
     };
 	public Movie(int id,ourtime[] time,int level,String place){
 

@@ -17,7 +17,7 @@ public class search extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search);
-        time = (ImageButton) findViewById(R.id.time);
+        time = (ImageButton) findViewById(R.id.textView1);
         rate = (ImageButton) findViewById(R.id.rate);
         ticket = (ImageButton) findViewById(R.id.ticket);
         conditional_search_movie = (ImageButton) findViewById(R.id.conditional_search_movie);
