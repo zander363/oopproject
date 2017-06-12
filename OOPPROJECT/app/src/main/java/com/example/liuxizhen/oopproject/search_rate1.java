@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 
 public class search_rate1 extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    public static final String EXTRA_MESSAGE = "search_rate_1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
