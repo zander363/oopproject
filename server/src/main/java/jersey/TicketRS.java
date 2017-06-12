@@ -1,8 +1,6 @@
+package jersey;
 
-
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.*;
 
 @Path("/ticket")
 public class TicketRS{
@@ -10,7 +8,7 @@ public class TicketRS{
 	@GET
 	@Path("/{id}")
 	public String getTicket(@PathParam("id")int id){
-		return id;
+		return ""+id;
 	}
 	@POST
 	@Path("/{id}")

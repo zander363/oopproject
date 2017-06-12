@@ -1,8 +1,6 @@
 package jersey;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.*;
 import mybatis.MovieMapper;
 
 @Path("/movie")
@@ -16,15 +14,18 @@ public class MovieRS{
 	 */
 	@GET
 	public String getAllMovie(){
+		return "";
 	}
+	
 	@GET
 	@Path("/normal/{id}")
 	public String getMovie(int id){
-		return id;
+		return ""+id;
 	}
+	
 	@GET
 	@Path("/rate/{rate}")
-	public String getMovie(int rate){
-		return id;
+	public String getMovieRate(int rate){
+		return ""+rate;
 	}
 }
