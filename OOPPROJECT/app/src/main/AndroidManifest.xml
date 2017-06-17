@@ -51,17 +51,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".search_rate1" />
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".search_time1" />
-        <activity android:name=".search_time2" />
-        <activity android:name=".search_movie_id1" />
-        <activity android:name=".search_movie_id2" />
-        <activity android:name=".search_ticket1" />
-        <activity android:name=".search_ticket2" />
-        <activity android:name=".search_conditional_search_movie1" />
-        <activity android:name=".search_conditional_search_movie3" />
-        <activity android:name=".search_conditional_search_movie2" />
-=======
+
         <activity android:name=".search_time1"
             android:screenOrientation="portrait"/>
         <activity android:name=".search_time2"
@@ -81,7 +71,7 @@
         <activity android:name=".search_conditional_search_movie2"
             android:screenOrientation="portrait"/>
 
->>>>>>> origin/master
+
     </application>
 
 </manifest>

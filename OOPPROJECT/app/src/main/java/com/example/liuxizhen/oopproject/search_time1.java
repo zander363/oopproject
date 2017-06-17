@@ -87,7 +87,7 @@ public class search_time1 extends AppCompatActivity {
     public void setTime2(View v) {
         timePickerDialog2.show();
     }
-
+    public void reset(View v) {timetext.setText("-- : --");}
 }
 
 
