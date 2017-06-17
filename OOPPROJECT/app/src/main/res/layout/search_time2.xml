@@ -30,5 +30,6 @@
         tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="112dp" />
+        android:layout_marginBottom="81dp"
+        app:layout_constraintHorizontal_bias="0.498" />
 </android.support.constraint.ConstraintLayout>

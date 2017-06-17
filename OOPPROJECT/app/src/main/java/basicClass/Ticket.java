@@ -26,8 +26,7 @@ public class Ticket{
 	 * @return String is mean the text suppose to show to user. 
 	 */
 	public String showInfo(){
-		return null;
-
+		return "ticketID:"+ticketID+", movieID:"+movieID+", seatID:"+seatID+", userID:"+userID;
 
 	}
 }

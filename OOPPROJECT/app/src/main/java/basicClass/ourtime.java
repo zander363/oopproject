@@ -1,5 +1,4 @@
 package basicClass;
-
 /**
  * Created by liuxizhen on 2017/6/9.
  */
@@ -14,16 +13,16 @@ public class ourtime {
     public ourtime(){
         hour = Integer.parseInt(new SimpleDateFormat("HH").format(new Date()));
         minute = Integer.parseInt(new SimpleDateFormat("mm").format(new Date()));
-        settoday_minute();
+        settotal_minute();
     }
 
     public ourtime(int hour, int minute){
         this.hour = hour;
         this.minute = minute;
-        settoday_minute();
+        settotal_minute();
     }
 
-    public void settoday_minute(){
+    public void settotal_minute(){
         total_minute=60*hour+minute;
     }
 
@@ -37,7 +36,7 @@ public class ourtime {
 
     public void setHour(int hour) {
         this.hour = hour;
-        this.settoday_minute();
+        this.settotal_minute();
     }
 
     public int getMinute() {
@@ -46,7 +45,7 @@ public class ourtime {
 
     public void setMinute(int minute) {
         this.minute = minute;
-        this.settoday_minute();}
+        this.settotal_minute();}
 
     public boolean refunding() {
         ourtime now = new ourtime();
