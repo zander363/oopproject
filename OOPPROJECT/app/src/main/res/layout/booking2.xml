@@ -19,7 +19,7 @@
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="@+id/input_name"
-        app:layout_constraintHorizontal_bias="0.494" />
+        app:layout_constraintHorizontal_bias="0.525" />
 
     <EditText
         android:id="@+id/input_name"
