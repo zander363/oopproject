@@ -26,7 +26,6 @@ public class search_time1 extends AppCompatActivity {
     public ourtime end_ourtime;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -35,9 +34,9 @@ public class search_time1 extends AppCompatActivity {
         setContentView(R.layout.search_time1);
         start_time = (Button) findViewById(R.id.timestart);
         end_time = (Button) findViewById(R.id.timeend);
-        timetext =(TextView) findViewById(R.id.time1);
-        timetext2 =(TextView) findViewById(R.id.time2);
-        confirmation =(Button) findViewById(R.id.confirmation);
+        timetext = (TextView) findViewById(R.id.time1);
+        timetext2 = (TextView) findViewById(R.id.time2);
+        confirmation = (Button) findViewById(R.id.confirmation);
         GregorianCalendar calendar = new GregorianCalendar();
 
         confirmation.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +57,7 @@ public class search_time1 extends AppCompatActivity {
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 timetext.setText((hourOfDay > 12 ? hourOfDay - 12 : hourOfDay)
                         + ":" + minute + " " + (hourOfDay > 12 ? "PM" : "AM"));
-                start_ourtime = new ourtime(hourOfDay,minute);
+                start_ourtime = new ourtime(hourOfDay, minute);
 
             }
         }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(calendar.MINUTE),
@@ -70,24 +69,31 @@ public class search_time1 extends AppCompatActivity {
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 timetext2.setText((hourOfDay > 12 ? hourOfDay - 12 : hourOfDay)
                         + ":" + minute + " " + (hourOfDay > 12 ? "PM" : "AM"));
-                end_ourtime = new ourtime(hourOfDay,minute);
+                end_ourtime = new ourtime(hourOfDay, minute);
             }
         }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(calendar.MINUTE),
                 false);
     }
 
 
-
-
     // setTime Button onClick 顯示時間設定視窗
     public void setTime(View v) {
         timePickerDialog.show();
     }
+
     // setTime Button onClick 顯示時間設定視窗
     public void setTime2(View v) {
         timePickerDialog2.show();
     }
 
+    public void reset(View v) {
+        timetext.setText("-- : --");
+    }
+
+    public void reset2(View v) {
+        timetext2.setText("-- : --");
+
+    }
 }
 
 
