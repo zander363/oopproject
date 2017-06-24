@@ -30,7 +30,7 @@ public class booking1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!"請選擇電影".equals(movies_spinner.getSelectedItem().toString())&&
-                        !"請選擇時間".equals(time_spinner.getSelectedItem().toString())){
+                        !"請選擇場次".equals(time_spinner.getSelectedItem().toString())){
                 Intent intent = new Intent();
                 intent.setClass(booking1.this, booking2.class);
 
@@ -62,7 +62,7 @@ public class booking1 extends AppCompatActivity {
             public void onItemSelected(AdapterView<?>parent,View view,int position,long id){
                 if (position>0) {
                     String[] time = new String[Base.moviesList[position-1].time.length+1];
-                    time[0]="請選擇時間";
+                    time[0]="請選擇場次";
                     for (int i = 0; i < Base.moviesList[position-1].time.length; i++) {
                         time[i+1] = new String(Base.moviesList[position-1].time[i].getinfo());
                     }
@@ -72,10 +72,26 @@ public class booking1 extends AppCompatActivity {
                     time_spinner.setSelection(0);
                     time_spinner.setAdapter(timeList);
                 }
-                else{}
+                else{
+                    String[] time = new String[1];
+                    time[0]="";
+                    ArrayAdapter<String> timeList = new ArrayAdapter<>(booking1.this,
+                            android.R.layout.simple_spinner_dropdown_item,
+                            time);
+                    time_spinner.setSelection(0);
+                    time_spinner.setAdapter(timeList);
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
+                String[] time = new String[1];
+                time[0]="";
+                ArrayAdapter<String> timeList = new ArrayAdapter<>(booking1.this,
+                        android.R.layout.simple_spinner_dropdown_item,
+                        time);
+                time_spinner.setSelection(0);
+                time_spinner.setAdapter(timeList);
+
             }
         }));
     }catch(Exception e){
