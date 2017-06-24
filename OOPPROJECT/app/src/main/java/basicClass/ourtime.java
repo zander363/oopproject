@@ -34,6 +34,11 @@ public class ourtime {
     }
 
     public String getinfo() {
+        String hour= String.valueOf(this.hour);
+        String minute=String.valueOf(this.hour);
+        if(this.hour/10==0)hour="0"+this.hour;
+        if(this.minute/10==0)minute="0"+this.minute;
+
         return hour + ":" + minute;
     }
 
