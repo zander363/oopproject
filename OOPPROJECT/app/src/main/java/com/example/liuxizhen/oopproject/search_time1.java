@@ -92,5 +92,3 @@ public class search_time1 extends AppCompatActivity {
 
     }
 }
-
-
