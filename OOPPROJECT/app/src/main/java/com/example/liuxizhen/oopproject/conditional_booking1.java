@@ -35,6 +35,7 @@ public class conditional_booking1 extends AppCompatActivity {
                 if(!"請選擇電影".equals(movies_spinner.getSelectedItem().toString())&&
                         !"請選擇場次".equals(time_spinner.getSelectedItem().toString())&&
                         !"".equals(number_input.getText().toString())){
+
                     Intent intent = new Intent();
                     intent.setClass(conditional_booking1.this, booking2.class);
                     intent.putExtra("number_sheets", number_input.getText().toString());

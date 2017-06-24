@@ -27,8 +27,7 @@ public class search_conditional_search_movie1 extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.editText);
         checkBox2=(CheckBox)findViewById(R.id.checkBox2);
         checkBox3=(CheckBox)findViewById(R.id.checkBox3);
-        checkBox2.setOnClickListener((View.OnClickListener) chklistener);
-        checkBox3.setOnClickListener((View.OnClickListener) chklistener);
+
 
 
 
@@ -37,7 +36,7 @@ public class search_conditional_search_movie1 extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(!"".equals(editText.getText().toString())){
-                    if(ch2chk||ch3chk) {
+                    if(checkBox2.isChecked()||checkBox3.isChecked()) {
                         Intent intent = new Intent();
                         intent.setClass(search_conditional_search_movie1.this, search_conditional_search_movie2.class);
                         intent.putExtra("number_sheets", editText.getText().toString());
@@ -60,18 +59,7 @@ public class search_conditional_search_movie1 extends AppCompatActivity {
         });
     }
 
-    CheckBox.OnCheckedChangeListener chklistener = new CheckBox.OnCheckedChangeListener(){
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
-            if(checkBox2.isChecked()){
-                ch2chk=true;
-            }
-            if(checkBox3.isChecked()){
-                ch3chk=true;
 
-            }
-
-        }
-    };
 }
 
 
