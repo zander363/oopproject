@@ -39,8 +39,18 @@ public class booking3 extends AppCompatActivity {
             String name = bundle.getString("name");
             int movieorder = bundle.getInt("movieorder");
 
-            if (age < Base.moviesList[movieorder].level){
-                booking_result.setText("年齡不合法！");
+            if (age < Base.moviesList[movieorder].level) {
+                switch(Base.moviesList[movieorder].level){
+                    case 6:
+                        booking_result.setText("失敗，該電影分級為保護級，"+age+"歲無法購買");
+                        break;
+                    case 15:
+                        booking_result.setText("失敗，該電影分級為輔導級，"+age+"歲無法購買");
+                        break;
+                    case 18:
+                        booking_result.setText("失敗，該電影分級為限制級，"+age+"歲無法購買");
+                        break;
+                }
             }
             else{
                 booking_result.setText(

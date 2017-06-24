@@ -16,7 +16,20 @@ public class Base{
 		ourtime[] movietime2 = {new ourtime("14:00"),new ourtime("16:00")};
 		Movie movie1 = new Movie("一仁的胸肌","0123",movietime1,18,"峨眉廳");
 		Movie movie2 = new Movie("黑子的足球","1234",movietime2,1,"武當廳");
-		moviesList = new Movie[]{movie1, movie2};
+		Movie movie3 = new Movie("一仁的胸肌","0123",movietime1,18,"峨眉廳");
+		Movie movie4 = new Movie("一仁的胸肌","0123",movietime1,18,"峨眉廳");
+		Movie movie5 = new Movie("一仁的胸肌","0123",movietime1,18,"峨眉廳");
+		Movie movie6 = new Movie("一仁的胸肌","0123",movietime1,18,"峨眉廳");
+		Movie movie7 = new Movie("一仁的胸肌","0123",movietime1,18,"峨眉廳");
+		Movie movie8 = new Movie("一仁的胸肌","0123",movietime1,18,"峨眉廳");
+		Movie movie9 = new Movie("一仁的胸肌","0123",movietime1,18,"峨眉廳");
+		Movie movie10 = new Movie("一仁的胸肌","0123",movietime1,18,"峨眉廳");
+		Movie movie11 = new Movie("一仁的胸肌","0123",movietime1,18,"峨眉廳");
+		Movie movie12 = new Movie("一仁的胸肌","0123",movietime1,18,"峨眉廳");
+		Movie movie13 = new Movie("一仁的胸肌","0123",movietime1,18,"峨眉廳");
+		Movie movie14 = new Movie("一仁的胸肌","0123",movietime1,18,"峨眉廳");
+		moviesList = new Movie[]{movie1, movie2, movie3, movie4, movie5,movie6,
+				movie7, movie8, movie9, movie10, movie11, movie12, movie13, movie14};
 	};
 	/**
 	 *this method is use to search the database

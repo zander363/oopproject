@@ -34,5 +34,6 @@ public class Movie{
 	public String showInfo(){
         return "ID:"+id+", time:"+time+", level:"+level+", place:"+place;
     };
+
 }
 
