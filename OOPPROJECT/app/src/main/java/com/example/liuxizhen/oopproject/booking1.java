@@ -29,6 +29,8 @@ public class booking1 extends AppCompatActivity {
         confirmation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!"請選擇電影".equals(movies_spinner.getSelectedItem().toString())&&
+                        !"請選擇時間".equals(time_spinner.getSelectedItem().toString())){
                 Intent intent = new Intent();
                 intent.setClass(booking1.this, booking2.class);
 
@@ -36,7 +38,10 @@ public class booking1 extends AppCompatActivity {
                 intent.putExtra("movie", movies_spinner.getSelectedItem().toString());
                 intent.putExtra("time", time_spinner.getSelectedItem().toString());
                 //把字串傳到第二個Activity
-                startActivity(intent);
+                startActivity(intent);}
+                else{
+                    Toast.makeText(booking1.this,"Please select!!!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
