@@ -1,4 +1,4 @@
-package baseMethod;
+package basicMethod;
 
 import basicClass.*;
 
@@ -17,6 +17,9 @@ public class BookAndRefund{
 	 *
 	 */
 	public static int bookReportCode(User user,Movie movie,ourtime time,int n){
+
+
+
 		return 0;
 	};
 	/**

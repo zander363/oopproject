@@ -3,8 +3,10 @@ package com.example.liuxizhen.oopproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.ImageButton;
+import android.view.*;
+import android.widget.*;
+
+import basicMethod.Base;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -12,9 +14,12 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton refund;
     private ImageButton conditional_booking;
     private ImageButton search;
+    //判斷離開的flag，設定成全域變數
+    private boolean is_exit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Base.loadMovie();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         booking = (ImageButton) findViewById(R.id.booking);
@@ -56,6 +61,31 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        boolean returnValue = false;
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0 && is_exit == false) {
+            Toast.makeText(getBaseContext(),"再按一次結束程式", Toast.LENGTH_SHORT).show();
+            is_exit = true;
+            // 一開始 先設定 返回的 flag = true ,若使用者兩秒內沒有動作，則將該 flag 恢復為 false
+            new Thread(new Runnable() {
+                public void run() {
+                    try {
+                        Thread.sleep(2000);
+                        is_exit = false;
+                    } catch (InterruptedException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+            returnValue = true;
+        } else {
+            returnValue = super.onKeyDown(keyCode, event);
+        }
+        return returnValue;
     }
 }
 

@@ -1,12 +1,12 @@
 package basicClass;
 
 public class Seat{
-    public int id;
+    public int seatid;
     public Seat(){
-    id=0;
+        seatid=0;
     }
     public Seat(int a){
-        id=a;
+        seatid=a;
     }
 
 }

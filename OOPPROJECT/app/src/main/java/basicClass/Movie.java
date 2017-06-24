@@ -3,19 +3,21 @@ import basicClass.ourtime;
 
 
 public class Movie{
-	public int id;
+	public String moviename;
+	public String id;
 	public ourtime[] time;
 	public int level;
 	public String place;
 
 	public Movie() {
-		id=0;
+		id="";
 		time = new ourtime[0];
 		level=0;
 		place="";
 
     };
-	public Movie(int id,ourtime[] time,int level,String place){
+	public Movie(String moviename,String id,ourtime[] time,int level,String place){
+		this.moviename=moviename;
 		this.id=id;
 		this.time = time;
 		this.level=level;

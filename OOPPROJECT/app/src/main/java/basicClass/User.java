@@ -3,13 +3,13 @@ package basicClass;
 public class User{
 	public String name;
 	public int age;
-	public int id;
+	public String id;
 	public User(){
-		name="";
-		age=1;
-		id=-1;
+		name="User";
+		age=0;
+		id="";
 	}
-	public User(String name,int age,int id){
+	public User(String name,int age,String id){
 		this.name=name;
 		this.age=age;
 		this.id=id;

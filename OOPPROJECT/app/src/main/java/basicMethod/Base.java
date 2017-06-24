@@ -1,18 +1,22 @@
-package baseMethod;
+package basicMethod;
 
 import basicClass.*;
 
 
 
 public class Base{
+	public static Movie[] moviesList;
 
 	/**
 	 *this method is to load the movies running schedule when the app start.
 	 *
-	 * @return Movie[] is the all Movie running schedule.
 	 */
-	public static Movie[] loadMovie(){
-		return null;
+	public static void loadMovie(){
+		ourtime[] movietime1 = {new ourtime(13,00),new ourtime(15,00)};
+		ourtime[] movietime2 = {new ourtime(14,00),new ourtime(16,00)};
+		Movie movie1 = new Movie("黑子的籃球","0123",movietime1,2,"峨眉廳");
+		Movie movie2 = new Movie("黑子的足球","1234",movietime2,1,"武當廳");
+		moviesList = new Movie[]{movie1, movie2};
 	};
 	/**
 	 *this method is use to search the database

@@ -1,4 +1,4 @@
-package baseMethod;
+package basicMethod;
 
 import basicClass.*;
 
