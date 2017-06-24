@@ -30,7 +30,8 @@ public class booking1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(!"請選擇電影".equals(movies_spinner.getSelectedItem().toString())&&
-                        !"請選擇場次".equals(time_spinner.getSelectedItem().toString())){
+                        !"請選擇場次".equals(time_spinner.getSelectedItem().toString())&&
+                        !"".equals(number_input.getText().toString())){
                 Intent intent = new Intent();
                 intent.setClass(booking1.this, booking2.class);
 
@@ -40,7 +41,7 @@ public class booking1 extends AppCompatActivity {
                 //把字串傳到第二個Activity
                 startActivity(intent);}
                 else{
-                    Toast.makeText(booking1.this,"Please select!!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(booking1.this,"有問題尚未回答", Toast.LENGTH_SHORT).show();
                 }
             }
         });
