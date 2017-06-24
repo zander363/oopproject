@@ -40,32 +40,42 @@ public class booking1 extends AppCompatActivity {
             }
         });
 
-
-        String[] movies = new String[Base.moviesList.length];
+        try{
+        String[] movies = new String[Base.moviesList.length+1];
+        movies[0]="請選擇電影";
         for(int i=0;i<Base.moviesList.length;i++){
-            movies[i] = new String(Base.moviesList[i].moviename);
+            movies[i+1] = new String(Base.moviesList[i].moviename);
         }
         ArrayAdapter<String> movieList = new ArrayAdapter<>(booking1.this,
                 android.R.layout.simple_spinner_dropdown_item,
                 movies);
+        movies_spinner.setSelection(0);
         movies_spinner.setAdapter(movieList);
         movies_spinner.setOnItemSelectedListener((new AdapterView.OnItemSelectedListener(){
 
             @Override
             public void onItemSelected(AdapterView<?>parent,View view,int position,long id){
-                String[] time = new String[Base.moviesList[position].time.length];
-                for(int i=0;i<Base.moviesList[position].time.length;i++){
-                    time[i] = new String(Base.moviesList[position].time[i].getinfo());
+                if (position>0) {
+                    String[] time = new String[Base.moviesList[position-1].time.length+1];
+                    time[0]="請選擇時間";
+                    for (int i = 0; i < Base.moviesList[position-1].time.length; i++) {
+                        time[i+1] = new String(Base.moviesList[position-1].time[i].getinfo());
+                    }
+                    ArrayAdapter<String> timeList = new ArrayAdapter<>(booking1.this,
+                            android.R.layout.simple_spinner_dropdown_item,
+                            time);
+                    time_spinner.setSelection(0);
+                    time_spinner.setAdapter(timeList);
                 }
-                ArrayAdapter<String> timeList = new ArrayAdapter<>(booking1.this,
-                        android.R.layout.simple_spinner_dropdown_item,
-                        time);
-                time_spinner.setAdapter(timeList);
+                else{}
             }
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
             }
         }));
+    }catch(Exception e){
+            Toast.makeText(booking1.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 }
 
