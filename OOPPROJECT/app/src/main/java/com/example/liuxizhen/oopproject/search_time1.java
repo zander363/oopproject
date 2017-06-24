@@ -17,8 +17,7 @@ import java.util.GregorianCalendar;
 public class search_time1 extends AppCompatActivity {
     private Button start_time;
     private Button end_time;
-    private TextView timetext2;
-    private TextView timetext;
+
     private TimePickerDialog timePickerDialog2;
     private TimePickerDialog timePickerDialog;
     private Button confirmation;
@@ -34,8 +33,6 @@ public class search_time1 extends AppCompatActivity {
         setContentView(R.layout.search_time1);
         start_time = (Button) findViewById(R.id.timestart);
         end_time = (Button) findViewById(R.id.timeend);
-        timetext = (TextView) findViewById(R.id.time1);
-        timetext2 = (TextView) findViewById(R.id.time2);
         confirmation = (Button) findViewById(R.id.confirmation);
         GregorianCalendar calendar = new GregorianCalendar();
 
@@ -55,7 +52,7 @@ public class search_time1 extends AppCompatActivity {
             //將時間轉為12小時製顯示出來
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                timetext.setText((hourOfDay > 12 ? hourOfDay - 12 : hourOfDay)
+                start_time.setText((hourOfDay > 12 ? hourOfDay - 12 : hourOfDay)
                         + ":" + minute + " " + (hourOfDay > 12 ? "PM" : "AM"));
                 start_ourtime = new ourtime(hourOfDay, minute);
 
@@ -67,7 +64,7 @@ public class search_time1 extends AppCompatActivity {
             //將時間轉為12小時製顯示出來
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                timetext2.setText((hourOfDay > 12 ? hourOfDay - 12 : hourOfDay)
+                end_time.setText((hourOfDay > 12 ? hourOfDay - 12 : hourOfDay)
                         + ":" + minute + " " + (hourOfDay > 12 ? "PM" : "AM"));
                 end_ourtime = new ourtime(hourOfDay, minute);
             }
@@ -87,11 +84,11 @@ public class search_time1 extends AppCompatActivity {
     }
 
     public void reset(View v) {
-        timetext.setText("-- : --");
+        start_time.setText("-- : --");
     }
 
     public void reset2(View v) {
-        timetext2.setText("-- : --");
+        end_time.setText("-- : --");
 
     }
 }
