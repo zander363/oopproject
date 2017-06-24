@@ -22,6 +22,13 @@ public class ourtime {
         settotal_minute();
     }
 
+    public ourtime(String a){
+        String[] b=a.split(":");
+        hour=Integer.valueOf(b[0]);
+        minute=Integer.valueOf(b[1]);
+        settotal_minute();
+    }
+
     public void settotal_minute(){
         total_minute=60*hour+minute;
     }

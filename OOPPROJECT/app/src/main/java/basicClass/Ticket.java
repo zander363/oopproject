@@ -2,17 +2,17 @@ package basicClass;
 
 public class Ticket{
 	public int userID;
-	public int movieID;
-	public int seatID;
+	public String movieID;
+	public String seatID;
 	public int ticketID;
 	public Ticket(){
 		userID=0;
-		movieID=0;
-		seatID=0;
+		movieID="";
+		seatID="";
 		ticketID=0;
 
 	}
-	public Ticket(int userID,int movieID,int seatID,int ticketID){
+	public Ticket(int userID,String movieID,String seatID,int ticketID){
 		this.ticketID=ticketID;
 		this.seatID=seatID;
 		this.movieID=movieID;
