@@ -28,21 +28,25 @@
 
                 <ImageButton
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="140dp"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp"
                     android:adjustViewBounds="true"
-                    app:srcCompat="@mipmap/ic_launcher" />
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/time" />
 
                 <ImageButton
                     android:id="@+id/ticket"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="140dp"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp"
                     android:adjustViewBounds="true"
-                    app:srcCompat="@mipmap/ic_launcher" />
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/ticket_number" />
             </TableRow>
 
             <TableRow
@@ -78,21 +82,25 @@
 
                 <ImageButton
                     android:id="@+id/rate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="140dp"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp"
                     android:adjustViewBounds="true"
-                    app:srcCompat="@mipmap/ic_launcher" />
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/rate" />
 
                 <ImageButton
                     android:id="@+id/movie_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="140dp"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp"
                     android:adjustViewBounds="true"
-                    app:srcCompat="@mipmap/ic_launcher" />
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/movie" />
             </TableRow>
 
             <TableRow
@@ -127,12 +135,14 @@
 
                 <ImageButton
                     android:id="@+id/conditional_search_movie"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="140dp"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp"
                     android:adjustViewBounds="true"
-                    app:srcCompat="@mipmap/ic_launcher" />
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/conditional_search" />
             </TableRow>
 
             <TableRow

@@ -30,23 +30,27 @@
 
                 <ImageButton
                     android:id="@+id/booking"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="160dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
                     android:adjustViewBounds="true"
-                    android:src="@android:drawable/btn_star"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/booking"
                     android:visibility="visible"
                     app:srcCompat="@mipmap/ic_launcher" />
 
                 <ImageButton
                     android:id="@+id/refund"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="160dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
                     android:adjustViewBounds="true"
-                    android:src="@android:drawable/btn_star"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/refund"
                     android:visibility="visible"
                     app:srcCompat="@android:drawable/ic_delete" />
             </TableRow>
@@ -88,23 +92,27 @@
 
                 <ImageButton
                     android:id="@+id/conditional_booking"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="160dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
                     android:adjustViewBounds="true"
-                    android:src="@android:drawable/btn_star"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/conditional_booking"
                     android:visibility="visible"
                     app:srcCompat="@mipmap/ic_launcher_round" />
 
                 <ImageButton
                     android:id="@+id/search"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="160dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
                     android:adjustViewBounds="true"
-                    android:src="@android:drawable/btn_star"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/search"
                     android:visibility="visible"
                     app:srcCompat="@android:drawable/ic_search_category_default" />
             </TableRow>

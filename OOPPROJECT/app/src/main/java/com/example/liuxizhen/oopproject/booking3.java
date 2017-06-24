@@ -3,13 +3,13 @@ package com.example.liuxizhen.oopproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.*;
 
 public class booking3 extends AppCompatActivity {
     private Button confirmation;
     private TextView booking_result;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,4 @@ public class booking3 extends AppCompatActivity {
 
     }
 
-    public void Touch(View v) {
-        finish();//返回上一個Activity
-    }
 }
