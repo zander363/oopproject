@@ -1,18 +1,18 @@
 package basicClass;
 
 public class Ticket{
-	public int userID;
+	public String userID;
 	public String movieID;
 	public String seatID;
-	public int ticketID;
+	public String ticketID;
 	public Ticket(){
-		userID=0;
+		userID="";
 		movieID="";
 		seatID="";
-		ticketID=0;
+		ticketID="";
 
 	}
-	public Ticket(int userID,String movieID,String seatID,int ticketID){
+	public Ticket(String userID,String movieID,String seatID,String ticketID){
 		this.ticketID=ticketID;
 		this.seatID=seatID;
 		this.movieID=movieID;
@@ -27,6 +27,5 @@ public class Ticket{
 	 */
 	public String showInfo(){
 		return "ticketID:"+ticketID+", movieID:"+movieID+", seatID:"+seatID+", userID:"+userID;
-
 	}
 }

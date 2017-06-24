@@ -87,7 +87,7 @@ public class BookAndRefund{
 	 *@return int mean the distinguish situation by our definition.
 	 *
 	 */
-	public static int refundReportCode(int ticketID){
+	public static int refundReportCode(String ticketID){
 		return 0;
 	};
 	/**
@@ -99,7 +99,7 @@ public class BookAndRefund{
 	 *@return String is the text to inform user.
 	 *
 	 */
-	public static String reportRefundResult(int reportCode,int ticketID){
+	public static String reportRefundResult(int reportCode,String ticketID){
 		return null;
 	};
 }
