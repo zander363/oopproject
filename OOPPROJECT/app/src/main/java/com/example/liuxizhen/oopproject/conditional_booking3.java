@@ -21,6 +21,8 @@ public class conditional_booking3 extends AppCompatActivity {
     private String continuity;
     private String assign;
     private String assignrow;
+    private String row;
+    private String region;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,8 @@ public class conditional_booking3 extends AppCompatActivity {
             continuity=bundle.getString("continue");
             assign=bundle.getString("assign");
             assignrow=bundle.getString("assignrow");
+            row=bundle.getString("row");
+            region=bundle.getString("region");
 
 
             confirmation.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +65,8 @@ public class conditional_booking3 extends AppCompatActivity {
                         intent.putExtra("continuity",continuity);
                         intent.putExtra("assignrow", assignrow);
                         intent.putExtra("assign", assign);
+                        intent.putExtra("row", row);
+                        intent.putExtra("region", region);
 
                     startActivity(intent);
                     } catch (ourException e) {

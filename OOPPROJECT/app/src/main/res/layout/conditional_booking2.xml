@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/appoint_spinner"
+        android:id="@+id/region_spinner"
         android:layout_width="0dp"
         android:layout_height="33dp"
         tools:layout_constraintRight_creator="1"
