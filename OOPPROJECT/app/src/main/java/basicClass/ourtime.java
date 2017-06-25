@@ -23,7 +23,7 @@ public class ourtime {
     }
 
     public ourtime(String a){
-        String[] b=a.split(":");
+        String[] b=a.split("：");
         hour=Integer.valueOf(b[0]);
         minute=Integer.valueOf(b[1]);
         settotal_minute();
