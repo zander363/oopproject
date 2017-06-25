@@ -24,6 +24,12 @@ public class UserDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+<<<<<<< HEAD
+=======
+        db.execSQL(oopUser.CREATE_TABLE);
+
+
+>>>>>>> 272ffddb792608773bd3a0dcb9a4179973ed118c
     }
 
     @Override
