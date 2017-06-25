@@ -1,5 +1,6 @@
 package com.example.liuxizhen.oopproject;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,8 +21,10 @@ public class booking3 extends AppCompatActivity {
     private String age;
     private String name;
     private String movieorder;
+    Context context;
+    OOPUser oopuser;
 
-    OOPUser oopuser = new OOPUser(this);
+    //OOPUser oopuser = new OOPUser(getApplicationContext());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,17 +33,18 @@ public class booking3 extends AppCompatActivity {
             setContentView( R.layout.booking3 );
             confirmation = (Button) findViewById( R.id.confirmation );
             booking_result = (TextView) findViewById( R.id.booking_result );
-            Bundle bundle = this.getIntent().getExtras();
+            context=getApplicationContext();
+            oopuser = new OOPUser(context);
 
+            Bundle bundle = this.getIntent().getExtras();
             number_sheets = bundle.getString( "number_sheets" );
             movie = bundle.getString( "movie" );
             time = bundle.getString( "time" );
             name = bundle.getString( "name" );
             age = bundle.getString( "age" );
             movieorder = bundle.getString( "movieorder" );
+
             User user=oopuser.get(name,Integer.parseInt(age));
-
-
 
 
             confirmation.setOnClickListener( new View.OnClickListener() {

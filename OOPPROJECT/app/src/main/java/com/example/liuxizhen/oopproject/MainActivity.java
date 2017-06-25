@@ -35,13 +35,12 @@ public class MainActivity extends AppCompatActivity {
     //判斷離開的flag，設定成全域變數
     private boolean doubleBackToExitPressedOnce = false;
     private UserDBHelper helper;
-    OOPUser oopuser = new OOPUser(this);
+    OOPUser oopuser;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        helper = new UserDBHelper(this, "oop.movie", null, 1);
 
         try {
 
@@ -52,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
             refund = (ImageButton) findViewById( R.id.refund );
             conditional_booking = (ImageButton) findViewById( R.id.conditional_booking );
             search = (ImageButton) findViewById( R.id.search );
+            oopuser = new OOPUser(this);
+            helper = new UserDBHelper(this, "oop.movie", null, 1);
             if (oopuser.getCount() == 0) {
                 oopuser.connect();
             }
@@ -101,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             } );
         }catch(Exception e){
-            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
     }
