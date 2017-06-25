@@ -10,6 +10,7 @@ import android.widget.*;
 
 import java.io.IOException;
 
+import basicClass.User;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
 import basicMethod.Base;
 
 
+
 public class MainActivity extends AppCompatActivity {
     private ImageButton booking;
     private ImageButton refund;
@@ -32,12 +34,12 @@ public class MainActivity extends AppCompatActivity {
     //判斷離開的flag，設定成全域變數
     private boolean doubleBackToExitPressedOnce = false;
 
-    private MyDBHelper helper;
+    private UserDBHelper helper;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        helper = new MyDBHelper(this, "oop.db", null, 1);
+        helper = new UserDBHelper(this, "oop.db", null, 1);
 
         try {
 
