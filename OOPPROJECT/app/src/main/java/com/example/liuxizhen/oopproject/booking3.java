@@ -21,7 +21,7 @@ public class booking3 extends AppCompatActivity {
     private String name;
     private String movieorder;
 
-    //OOPUser oopuser = new OOPUser(getApplicationContext());
+    OOPUser oopuser = new OOPUser(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class booking3 extends AppCompatActivity {
             name = bundle.getString( "name" );
             age = bundle.getString( "age" );
             movieorder = bundle.getString( "movieorder" );
-            //User user=oopuser.get(name,Integer.parseInt(age));
+            User user=oopuser.get(name,Integer.parseInt(age));
 
 
 
