@@ -83,7 +83,7 @@ public class OOPUser{
 	}
 
 
-	public static String connect(){
+	public void connect(){
 
 
 		Request request = new Request.Builder()
