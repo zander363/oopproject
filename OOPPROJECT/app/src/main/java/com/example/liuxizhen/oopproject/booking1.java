@@ -18,7 +18,7 @@ public class booking1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        try{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.booking1);
 
@@ -30,6 +30,10 @@ public class booking1 extends AppCompatActivity {
         confirmation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if("0".equals(number_input.getText().toString())){
+                    number_input.setText( "" );
+                    Toast.makeText(booking1.this,"張數錯誤，請重新輸入", Toast.LENGTH_SHORT).show();
+                }
                 if(!"請選擇電影".equals(movies_spinner.getSelectedItem().toString())&&
                         !"請選擇場次".equals(time_spinner.getSelectedItem().toString())&&
                         !"".equals(number_input.getText().toString())){
@@ -38,7 +42,7 @@ public class booking1 extends AppCompatActivity {
                     intent.putExtra("number_sheets", number_input.getText().toString());
                     intent.putExtra("movie", movies_spinner.getSelectedItem().toString());
                     intent.putExtra("time", time_spinner.getSelectedItem().toString());
-                    intent.putExtra("movieorder", movieorder);
+                    intent.putExtra("movieorder", Integer.toString(movieorder));
                 //把字串傳到第二個Activity
                 startActivity(intent);}
                 else{
@@ -47,7 +51,7 @@ public class booking1 extends AppCompatActivity {
             }
         });
 
-        try{
+
         String[] movies = new String[Base.moviesList.length+1];
         movies[0]="請選擇電影";
         for(int i=0;i<Base.moviesList.length;i++){

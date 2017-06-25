@@ -12,13 +12,14 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="請輸入您的姓名"
-        tools:layout_constraintTop_creator="1"
         android:layout_marginStart="45dp"
         android:layout_marginTop="66dp"
-        tools:layout_constraintLeft_creator="1"
+        android:text="請輸入您的姓名"
+        android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <EditText
         android:id="@+id/input_name"
@@ -38,16 +39,17 @@
         android:id="@+id/age"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="年齡"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="45dp"
-        app:layout_constraintBottom_toBottomOf="@+id/input_age"
-        android:layout_marginTop="88dp"
-        tools:layout_constraintLeft_creator="1"
         android:layout_marginBottom="90dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="88dp"
+        android:text="年齡"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/input_age"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/input_name" />
+        app:layout_constraintTop_toTopOf="@+id/input_name"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <EditText
         android:id="@+id/input_age"
