@@ -1,4 +1,4 @@
-Ôªøpackage com.example.liuxizhen.oopproject;
+package com.example.liuxizhen.oopproject;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -20,7 +20,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class OOPUser {
 	public static final String TABLE_NAME="user";
@@ -31,8 +30,6 @@ public class OOPUser {
 	public static final String AGE_COLUMN= "age";
 	public static final String CREATE_TABLE="CREATE TABLE "+TABLE_NAME+"("+KEY_ID+"INTEGER PRIMARY KEY AUTOINCREMENT,"+NAME_COLUMN+"TEXT NOT NULL,"+AGE_COLUMN+"INTEGER NOT NOT NULL)"; 
 	private SQLiteDatabase db;
-
-	public static ArrayList<User> usersList=new ArrayList<>();
 	static OkHttpClient client = new OkHttpClient();
 
 	public OOPUser(Context context){
@@ -94,12 +91,12 @@ public class OOPUser {
 			public void onResponse(Call call, Response response) throws IOException {
 				String json = response.body().string();
 				Log.d("OKHTTP", json);
-				//Ëß£ÊûêJSON
+				//∏—™RJSON
 				loadSample(json);
 			}
 			@Override
 			public void onFailure(Call call, IOException e) {
-				//ÂëäÁü•‰ΩøÁî®ËÄÖÈÄ£Á∑öÂ§±Êïó
+				//ßi™æ®œ•Œ™Ã≥sΩu•¢±—
 
 			}
 		});
@@ -113,7 +110,6 @@ public class OOPUser {
 				String name=obj.getString(("name"));
 				int age=obj.getInt("age");
 				User a = new User(name,age,index);
-				usersList.add( a );
 				insert(a);
 			}
 
