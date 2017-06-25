@@ -32,8 +32,13 @@ public class MainActivity extends AppCompatActivity {
     //判斷離開的flag，設定成全域變數
     private boolean doubleBackToExitPressedOnce = false;
 
+    private MyDBHelper helper;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        helper = new MyDBHelper(this, "oop.db", null, 1);
+
         try {
 
             Base.loadMovie();
