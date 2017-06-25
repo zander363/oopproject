@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import basicClass.ourException;
+
 public class conditional_booking3 extends AppCompatActivity {
     private Button confirmation;
     private EditText input_name;
@@ -16,24 +18,56 @@ public class conditional_booking3 extends AppCompatActivity {
     private String movie;
     private String time;
     private String movieorder;
-    private boolean samerow;
+    private String continuity;
+    private String assign;
+    private String assignrow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try{
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.conditional_booking3);
-        confirmation = (Button) findViewById(R.id.confirmation);
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.conditional_booking3);
+            confirmation = (Button) findViewById(R.id.confirmation);
             input_age=(EditText)findViewById(R.id.input_age);
+            input_name=(EditText)findViewById(R.id.input_name);
 
-        confirmation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(conditional_booking3.this, conditional_booking4.class);
-                startActivity(intent);
-            }
-        });
+            Bundle bundle = this.getIntent().getExtras();
+
+            number_sheets = bundle.getString( "number_sheets"  );
+            movie=bundle.getString("movie");
+            time=bundle.getString("time");
+            movieorder=bundle.getString("movieorder");
+            continuity=bundle.getString("continue");
+            assign=bundle.getString("assign");
+            assignrow=bundle.getString("assignrow");
+
+
+            confirmation.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+                        if ("".equals( input_name.getText().toString() ) ||
+                                "".equals( input_age.getText().toString() )) {
+                            throw new ourException( "有問題尚未回答" );
+                        }
+                    Intent intent = new Intent();
+                    intent.setClass(conditional_booking3.this, conditional_booking4.class);
+                        intent.putExtra( "number_sheets", number_sheets );
+                        intent.putExtra( "movie", movie );
+                        intent.putExtra( "time", time );
+                        intent.putExtra( "name", input_name.getText().toString() );
+                        intent.putExtra( "age", input_age.getText().toString() );
+                        intent.putExtra( "movieorder", movieorder );
+                        intent.putExtra("continuity",continuity);
+                        intent.putExtra("assignrow", assignrow);
+                        intent.putExtra("assign", assign);
+
+                    startActivity(intent);
+                    } catch (ourException e) {
+                        Toast.makeText( conditional_booking3.this, e.getMessage(), Toast.LENGTH_SHORT ).show();
+                    }
+                }
+            });
         }catch (Exception e){
             Toast.makeText(conditional_booking3.this,e.getMessage(), Toast.LENGTH_SHORT).show();
         }

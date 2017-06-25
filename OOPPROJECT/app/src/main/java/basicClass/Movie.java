@@ -36,15 +36,15 @@ public class Movie{
     }
     public String determine_theater(){
 		switch(this.place){
-			case "武當廳":
+			case "武當":
 				return "大廳";
-			case "少林廳":
+			case "少林":
 				return "大廳";
-			case "華山廳":
+			case "華山":
 				return "大廳";
-			case "峨嵋廳":
+			case "峨嵋":
 				return "小廳";
-			case "崆峒廳":
+			case "崆峒":
 				return "小廳";
 			default:
 				return null;

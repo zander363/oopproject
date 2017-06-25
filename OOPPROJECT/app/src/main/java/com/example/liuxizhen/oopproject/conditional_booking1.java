@@ -46,10 +46,10 @@ public class conditional_booking1 extends AppCompatActivity {
                             intent.putExtra("number_sheets", number_input.getText().toString());
                             intent.putExtra("movie", movies_spinner.getSelectedItem().toString());
                             intent.putExtra("time", time_spinner.getSelectedItem().toString());
-                            intent.putExtra("movieorder", movieorder);
+                            intent.putExtra("movieorder", Integer.toString(movieorder));
                             intent.putExtra("assign", checkassign.isChecked());
                             intent.putExtra("assignrow", checkassignrow.isChecked());
-                            intent.putExtra("continue", checkcontinue.isChecked());
+                            intent.putExtra("continuity", checkcontinue.isChecked());
                             //把字串傳到第二個Activity
                             startActivity(intent);}
                     } else {
@@ -60,6 +60,8 @@ public class conditional_booking1 extends AppCompatActivity {
                         intent.putExtra("time", time_spinner.getSelectedItem().toString());
                         intent.putExtra("movieorder", Integer.toString(movieorder));
                         intent.putExtra("continue", checkcontinue.isChecked());
+                        intent.putExtra("assignrow", checkassignrow.isChecked());
+                        intent.putExtra("assign", checkassign.isChecked());
                         //把字串傳到第二個Activity
                         startActivity(intent);
                     }
