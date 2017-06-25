@@ -1,4 +1,4 @@
-package com.example.liuxizhen.oopproject;
+﻿package com.example.liuxizhen.oopproject;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -22,7 +22,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class oopUser {
+public class OOPUser {
 	public static final String TABLE_NAME="user";
 	
 	public static final String KEY_ID= "_id";
@@ -35,7 +35,7 @@ public class oopUser {
 	public static ArrayList<User> usersList=new ArrayList<>();
 	static OkHttpClient client = new OkHttpClient();
 
-	public oopUser(Context context){
+	public OOPUser(Context context){
 		db=UserDBHelper.getDatabase(context);
 	}
 

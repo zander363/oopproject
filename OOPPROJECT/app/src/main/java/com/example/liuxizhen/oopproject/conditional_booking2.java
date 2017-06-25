@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+
 import basicClass.ourException;
 import basicMethod.Base;
 
@@ -24,6 +25,8 @@ public class conditional_booking2 extends AppCompatActivity {
     private String assignrow;
     private String row;
     private String region;
+
+    private UserDBHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

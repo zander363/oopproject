@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.*;
+import basicClass.*;
+
 
 import basicMethod.Base;
 
@@ -18,6 +20,8 @@ public class booking3 extends AppCompatActivity {
     private String age;
     private String name;
     private String movieorder;
+
+    OOPUser oopuser = new OOPUser(getApplicationContext());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,7 @@ public class booking3 extends AppCompatActivity {
             name = bundle.getString( "name" );
             age = bundle.getString( "age" );
             movieorder = bundle.getString( "movieorder" );
+            User user=oopuser.get(name,Integer.parseInt(age));
 
 
 
