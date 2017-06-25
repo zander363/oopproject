@@ -4,8 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.util.ArrayList;
 
 import basicMethod.Base;
 
@@ -17,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton search;
     //判斷離開的flag，設定成全域變數
     private boolean doubleBackToExitPressedOnce = false;
-    private String cannotgoback = "no";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +50,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
+
+
             booking.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    cannotgoback = "no";
+                    doubleBackToExitPressedOnce = false;
                     Intent intent = new Intent();
                     intent.setClass( MainActivity.this, booking1.class );
                     startActivity( intent );
@@ -49,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             refund.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    cannotgoback = "no";
+                    doubleBackToExitPressedOnce = false;
                     Intent intent = new Intent();
                     intent.setClass( MainActivity.this, refund1.class );
                     startActivity( intent );
@@ -58,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             conditional_booking.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    cannotgoback = "no";
+                    doubleBackToExitPressedOnce = false;
                     Intent intent = new Intent();
                     intent.setClass( MainActivity.this, conditional_booking1.class );
                     startActivity( intent );
@@ -67,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             search.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    cannotgoback = "no";
+                    doubleBackToExitPressedOnce = false;
                     Intent intent = new Intent();
                     intent.setClass( MainActivity.this, search.class );
                     startActivity( intent );

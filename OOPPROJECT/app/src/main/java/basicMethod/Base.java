@@ -1,11 +1,29 @@
 package basicMethod;
 
 import basicClass.*;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
+import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 
 
 public class Base{
 	public static Movie[] moviesList;
+	static OkHttpClient client = new OkHttpClient();
 
 	/**
 	 *this method is to load the movies running schedule when the app start.
@@ -31,7 +49,44 @@ public class Base{
 		Movie movie14 = new Movie("一仁的胸肌","0123",movietime1,18,"峨嵋廳");
 		moviesList = new Movie[]{movie1, movie2, movie3, movie4, movie5,movie6,
 				movie7, movie8, movie9, movie10, movie11, movie12, movie13, movie14};
+
+		Request request = new Request.Builder()
+				.url("http://atm201605.appspot.com/h")
+				.build();
+		Call call = client.newCall(request);
+		call.enqueue(new Callback() {
+			@Override
+			public void onResponse(Call call, Response response) throws IOException {
+				String json = response.body().string();
+				Log.d("OKHTTP", json);
+				//解析JSON
+				parseJSON(json);
+			}
+			@Override
+			public void onFailure(Call call, IOException e) {
+				//告知使用者連線失敗
+			}
+		});
 	};
+
+	private static void parseJSON(String s) {
+		ArrayList<Movie> movieArrayList = new ArrayList<>();
+		try {
+			JSONArray array = new JSONArray(s);
+			for (int i=0; i<array.length(); i++){
+				JSONObject obj = array.getJSONObject(i);
+				String movie = obj.getString("movie");
+				String id = obj.getString("id");
+				int amount = obj.getString("time");
+				String place = obj.getString("hall");
+				Log.d("JSON:",account+"/"+date+"/"+amount+"/"+type);
+				Movie t = new Movie(movie, id, time, level, place);
+				movieArrayList.add(t);
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+	}
 	/**
 	 *this method is use to search the database
 	 *,return the corresponding data when it exist,or return NULL; 
