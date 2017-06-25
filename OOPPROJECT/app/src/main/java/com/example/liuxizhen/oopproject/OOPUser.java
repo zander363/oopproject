@@ -28,7 +28,7 @@ public class OOPUser {
 
 	public static final String NAME_COLUMN= "name";
 	public static final String AGE_COLUMN= "age";
-	public static final String CREATE_TABLE="CREATE TABLE "+TABLE_NAME+"("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+NAME_COLUMN+" TEXT NOT NULL, "+AGE_COLUMN+" INTEGER NOT NOT NULL)";
+	public static final String CREATE_TABLE="CREATE TABLE "+TABLE_NAME+" ("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+NAME_COLUMN+" TEXT NOT NULL, "+AGE_COLUMN+" INTEGER NOT NULL)";
 	private SQLiteDatabase db;
 
 	public static ArrayList<User> usersList=new ArrayList<>();
