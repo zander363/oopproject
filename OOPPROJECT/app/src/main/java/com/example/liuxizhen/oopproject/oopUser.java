@@ -96,7 +96,7 @@ public class OOPUser{
 				String json = response.body().string();
 				Log.d("OKHTTP", json);
 				//解析JSON
-				retuurn json;
+				loadSample(json);
 			}
 			@Override
 			public void onFailure(Call call, IOException e) {
@@ -105,9 +105,8 @@ public class OOPUser{
 			}
 		});
 	};
-	public static void loadSample(){
+	public void loadSample(String s){
 		try {
-			String s=connect();
 			JSONArray array = new JSONArray(s);
 			for (int i = 0; i < array.length(); i++) {
 				JSONObject obj = array.getJSONObject(i);
@@ -116,6 +115,7 @@ public class OOPUser{
 				int age=obj.getInt("age");
 				User a = new User(name,age,index);
 				usersList.add( a );
+				insert(a);
 			}
 
 		}catch(JSONException e){
