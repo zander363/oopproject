@@ -7,11 +7,11 @@
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:screenOrientation="portrait">
-
-        <activity android:name=".MainActivity"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,28 +19,39 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".booking1"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".search"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".refund1"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".conditional_booking1"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".refund2"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".booking2"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".conditional_booking4"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".booking3"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".conditional_booking3"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".conditional_booking2"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".search_rate1"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".booking1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".search"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".refund1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".conditional_booking1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".refund2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".booking2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".conditional_booking4"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".booking3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".conditional_booking3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".conditional_booking2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".search_rate1"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".search_rate2"
             android:parentActivityName=".search_rate1"
@@ -51,27 +62,34 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".search_rate1" />
         </activity>
-
-        <activity android:name=".search_time1"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".search_time2"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".search_movie_id1"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".search_movie_id2"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".search_ticket1"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".search_ticket2"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".search_conditional_search_movie1"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".search_conditional_search_movie3"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".search_conditional_search_movie2"
-            android:screenOrientation="portrait"/>
-
-
+        <activity
+            android:name=".search_time1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".search_time2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".search_movie_id1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".search_movie_id2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".search_ticket1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".search_ticket2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".search_conditional_search_movie1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".search_conditional_search_movie3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".search_conditional_search_movie2"
+            android:screenOrientation="portrait" />
+        <activity android:name=".conditional_booking2a"></activity>
     </application>
 
 </manifest>
