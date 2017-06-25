@@ -19,6 +19,7 @@ public class search_movie_id2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
+                intent.putExtra("directgoback","true");
                 intent.setClass(search_movie_id2.this, MainActivity.class);
                 startActivity(intent);
             }

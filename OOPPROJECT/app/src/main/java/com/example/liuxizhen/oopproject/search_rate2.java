@@ -28,6 +28,7 @@ public class search_rate2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
+                intent.putExtra("directgoback","true");
                 intent.setClass(search_rate2.this, MainActivity.class);
                 startActivity(intent);
             }

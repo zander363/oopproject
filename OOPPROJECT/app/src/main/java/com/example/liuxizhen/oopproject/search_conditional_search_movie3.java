@@ -19,6 +19,7 @@ public class search_conditional_search_movie3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
+                intent.putExtra("directgoback","true");
                 intent.setClass(search_conditional_search_movie3.this, MainActivity.class);
                 startActivity(intent);
             }
