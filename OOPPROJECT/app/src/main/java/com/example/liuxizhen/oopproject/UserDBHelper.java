@@ -9,15 +9,13 @@ public class UserDBHelper extends SQLiteOpenHelper {
     public static final int VERSION = 1;
     private static SQLiteDatabase database;
 
-    public UserDBHelper(Context context, String name,
-                      SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public UserDBHelper(Context context) {
+        super(context, DATABASE_NAME, null, VERSION);
     }
 
     public static SQLiteDatabase getDatabase(Context context) {
         if (database == null || !database.isOpen()) {
-            database = new UserDBHelper(context, DATABASE_NAME,
-                    null, VERSION).getWritableDatabase();
+            database = new UserDBHelper(context).getWritableDatabase();
         }
         return database;
     }

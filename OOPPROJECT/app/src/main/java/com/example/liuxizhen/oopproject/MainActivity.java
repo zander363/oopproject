@@ -23,6 +23,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import basicMethod.Base;
+import android.database.sqlite.SQLiteDatabase;
 
 
 
@@ -33,14 +34,14 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton search;
     //判斷離開的flag，設定成全域變數
     private boolean doubleBackToExitPressedOnce = false;
+    private UserDBHelper helper;
     //OOPUser oopuser = new OOPUser(getApplicationContext());
 
-    private UserDBHelper helper;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        helper = new UserDBHelper(this, "oop.db", null, 1);
+        helper = new UserDBHelper(this);
 
         try {
 

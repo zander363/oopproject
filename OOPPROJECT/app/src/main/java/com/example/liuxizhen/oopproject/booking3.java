@@ -21,7 +21,7 @@ public class booking3 extends AppCompatActivity {
     private String name;
     private String movieorder;
 
-    OOPUser oopuser = new OOPUser(getApplicationContext());
+    //OOPUser oopuser = new OOPUser(getApplicationContext());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class booking3 extends AppCompatActivity {
             name = bundle.getString( "name" );
             age = bundle.getString( "age" );
             movieorder = bundle.getString( "movieorder" );
-            User user=oopuser.get(name,Integer.parseInt(age));
+            //User user=oopuser.get(name,Integer.parseInt(age));
 
 
 
@@ -53,7 +53,7 @@ public class booking3 extends AppCompatActivity {
                     startActivity( intent );
                 }
             } );
-            if (user.age < Base.moviesList.get( Integer.parseInt( movieorder ) ).level) {
+            if (Integer.parseInt(age) < Base.moviesList.get( Integer.parseInt( movieorder ) ).level) {
                 switch (Base.moviesList.get( Integer.parseInt( movieorder ) ).level) {
                     case 6:
                         booking_result.setText( "失敗，該電影分級為保護級，" + age + "歲無法購買" );
