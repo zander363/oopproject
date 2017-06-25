@@ -17,8 +17,6 @@ public class booking2 extends AppCompatActivity {
     private String time;
     private String movieorder;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
