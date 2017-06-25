@@ -61,16 +61,16 @@ public class Base{
 			JSONArray array = new JSONArray(s);
 			for (int i=0; i<array.length(); i++){
 				JSONObject obj = array.getJSONObject(i);
-				String movie = obj.getString("movie");
-				String id = obj.getString("id");
+				String movie = obj.getString("movie").trim();
+				String id = obj.getString("id").trim();
 				ourtime[] time = new ourtime[obj.getString("time").split( "、" ).length];
 				String timeLogStr="";
 				for(int j=0; j<obj.getString("time").split( "、" ).length; j++){
-					time[j] = new ourtime(obj.getString("time").split( "、" )[j]);
-					timeLogStr += obj.getString("time").split( "、" )[j];
+					time[j] = new ourtime(obj.getString("time").split( "、" )[j].trim());
+					timeLogStr += obj.getString("time").split( "、" )[j].trim()+" ";
 				}
-				int level = Base.classificationToLevel(obj.getString("classification"));
-				String place = obj.getString("hall");
+				int level = Base.classificationToLevel(obj.getString("classification").trim());
+				String place = obj.getString("hall").trim();
 				Log.d("JSON:",movie+"/"+id+"/"+timeLogStr+"/"+level+"/"+place);
 				Movie t = new Movie(movie, id, time, level, place);
 				moviesList.add(t);
