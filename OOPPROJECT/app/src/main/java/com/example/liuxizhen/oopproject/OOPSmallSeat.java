@@ -22,52 +22,70 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class OOPUser {
-	public static final String TABLE_NAME="user";
+public class OOPSmallSeat {
+
+	public String TABLE_NAME;
 	
 	public static final String KEY_ID= "_id";
 
-	public static final String NAME_COLUMN= "name";
-	public static final String AGE_COLUMN= "age";
-	public static final String CREATE_TABLE="CREATE TABLE IF NOT EXISTS "+TABLE_NAME+" ("+KEY_ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+NAME_COLUMN+" TEXT NOT NULL, "+AGE_COLUMN+" INTEGER NOT NULL)";
+	public static final String ROW_COLUMN= "row";
+	public static final String NUM_COLUMN= "seatnum";
+	public static final String OCC_COLUMN= "occupied";
+	public String CREATE_TABLE="CREATE TABLE IF NOT EXISTS "+TABLE_NAME+" ("+KEY_ID+" TEXT PRIMARY KEY AUTOINCREMENT, "+ROW_COLUMN+" TEXT NOT NULL, "+NUM_COLUMN+" INTEGER NOT NULL"+OCC_COLUMN+" TEXT NOT NULL)";
 	private SQLiteDatabase db;
 
 	public static ArrayList<User> usersList=new ArrayList<>();
 	static OkHttpClient client = new OkHttpClient();
 
-	public OOPUser(Context context){
+	public OOPSmallSeat(Context context,String movie,ourtime time){
+		TABLE_NAME=movie+time.toString();
 		db=UserDBHelper.getDatabase(context);
 	}
 
 	public void close(){
 		db.close();
 	}
-	public User insert(User user){
+	public boolean update(SmallSeat seat){
 		ContentValues cv=new ContentValues();
 
-		cv.put(NAME_COLUMN,user.id);
-		cv.put(AGE_COLUMN,user.age);
-		long id=db.insert(TABLE_NAME,null,cv);
-		user.id=(int)id;
+		cv.put(KEY_ID, seat.seatid);
+		cv.put(ROW_COLUMN, seat.row);
+		cv.put(NUM_COLUMN, seat.seatNum);
+		cv.put(OCC_COLUMN, seat.occupied);
 
-		return user;
+
+		// 設定修改資料的條件為編號
+		// 格式為「欄位名稱＝資料」
+		String where = KEY_ID + "=" + seat.seatid;
+
+		// 執行修改資料並回傳修改的資料數量是否成功
+		return db.update(TABLE_NAME, cv, where, null) > 0;
 	}
-	public User get(String name,int age){
-		User user=null;
+	public SmallSeat get(int id){
+		SmallSeat seat=null;
 
-		String where=NAME_COLUMN+" = \'"+name+"\' AND "+AGE_COLUMN+" = "+age;
+		String where=KEY_ID+" = \'"+id;
 
 		Cursor result=db.query(TABLE_NAME,null,where,null,null,null,null,null);
 
 		if(result.moveToFirst()){
-			user=getRecord(result);
+			seat=getRecord(result);
 
 		}
 		result.close();
-		return user;
+		return seat;
 	}
-	public List<User> getAll() {
-		List<User> result = new ArrayList<>();
+	public SmallSeat insert(SmallSeat seat) {
+		ContentValues cv = new ContentValues();
+
+		cv.put(KEY_ID, seat.seatid);
+		cv.put(ROW_COLUMN, seat.row);
+		cv.put(NUM_COLUMN, seat.seatNum);
+		cv.put(OCC_COLUMN, seat.occupied);
+		return seat;
+	}
+	public List<SmallSeat> getAll() {
+		List<SmallSeat> result = new ArrayList<>();
 		Cursor cursor = db.query(
 				TABLE_NAME, null, null, null, null, null, null, null);
 
@@ -79,15 +97,15 @@ public class OOPUser {
 		return result;
 	}
 
-	public User getRecord(Cursor cursor){
-		User result=new User(cursor.getString(1),cursor.getInt(2),cursor.getInt(0));
+	public SmallSeat getRecord(Cursor cursor){
+		SmallSeat result=new SmallSeat(cursor.getString(0),cursor.getString(1),cursor.getInt(2),cursor.getString(3)=="true");
 		return result;
 	}
 
 	public int getCount(){
 		int result =0;
 		Cursor cursor=db.rawQuery("SELECT COUNT(*) FROM"+TABLE_NAME,null);
-		while(cursor.moveToNext()){
+		if(cursor.moveToNext()){
 			result=cursor.getInt(0);
 		}
 		return result;
@@ -119,11 +137,12 @@ public class OOPUser {
 			JSONArray array = new JSONArray(s);
 			for (int i = 0; i < array.length(); i++) {
 				JSONObject obj = array.getJSONObject(i);
-				int index = obj.getInt("index");
-				String name=obj.getString(("name"));
-				int age=obj.getInt("age");
-				User a = new User(name,age,index);
-				usersList.add( a );
+
+				String id=obj.getString(("id"));
+				String row=obj.getString(("row"));
+				int num = obj.getInt("seatNum");
+				Boolean occ=obj.getString("occupied")=="true";
+				SmallSeat a = new SmallSeat(id,row,num,occ);
 				insert(a);
 			}
 
