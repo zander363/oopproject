@@ -33,23 +33,35 @@ public class conditional_booking1 extends AppCompatActivity {
         confirmation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!"請選擇電影".equals(movies_spinner.getSelectedItem().toString())&&
-                        !"請選擇場次".equals(time_spinner.getSelectedItem().toString())&&
-                        !"".equals(number_input.getText().toString())){
-                    if(checkassign.isChecked()||checkassignrow.isChecked()){
-                        if(checkassign.isChecked()&&)
-
-                    Intent intent = new Intent();
-                    intent.setClass(conditional_booking1.this, conditional_booking2.class);
-                    intent.putExtra("number_sheets", number_input.getText().toString());
-                    intent.putExtra("movie", movies_spinner.getSelectedItem().toString());
-                    intent.putExtra("time", time_spinner.getSelectedItem().toString());
-                    intent.putExtra("movieorder", movieorder);
-                        intent.putExtra("assign",checkassign.isChecked());
-                        intent.putExtra("assignrow",checkassignrow.isChecked());
-                        intent.putExtra("continue",checkcontinue.isChecked());
-                    //把字串傳到第二個Activity
-                    startActivity(intent);
+                if (!"請選擇電影".equals(movies_spinner.getSelectedItem().toString()) &&
+                        !"請選擇場次".equals(time_spinner.getSelectedItem().toString()) &&
+                        !"".equals(number_input.getText().toString())) {
+                    if (checkassign.isChecked() || checkassignrow.isChecked()) {
+                        if (checkassign.isChecked() && "小廳".equals( Base.moviesList.get( movieorder ).determine_theater())){
+                            Toast.makeText(conditional_booking1.this, "小廳無區域", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Intent intent = new Intent();
+                            intent.setClass(conditional_booking1.this, conditional_booking2.class);
+                            intent.putExtra("number_sheets", number_input.getText().toString());
+                            intent.putExtra("movie", movies_spinner.getSelectedItem().toString());
+                            intent.putExtra("time", time_spinner.getSelectedItem().toString());
+                            intent.putExtra("movieorder", movieorder);
+                            intent.putExtra("assign", checkassign.isChecked());
+                            intent.putExtra("assignrow", checkassignrow.isChecked());
+                            intent.putExtra("continue", checkcontinue.isChecked());
+                            //把字串傳到第二個Activity
+                            startActivity(intent);}
+                    } else {
+                        Intent intent = new Intent();
+                        intent.setClass(conditional_booking1.this, conditional_booking3.class);
+                        intent.putExtra("number_sheets", number_input.getText().toString());
+                        intent.putExtra("movie", movies_spinner.getSelectedItem().toString());
+                        intent.putExtra("time", time_spinner.getSelectedItem().toString());
+                        intent.putExtra("movieorder", movieorder);
+                        intent.putExtra("continue", checkcontinue.isChecked());
+                        //把字串傳到第二個Activity
+                        startActivity(intent);
                     }
                     else{
                     Intent intent = new Intent();
@@ -71,9 +83,9 @@ public class conditional_booking1 extends AppCompatActivity {
 
 
         try{
-            String[] movies = new String[Base.moviesList.length+1];
+            String[] movies = new String[Base.moviesList.size()+1];
             movies[0]="請選擇電影";
-            for(int i=0;i<Base.moviesList.length;i++){
+            for(int i=0;i<Base.moviesList.size();i++){
                 movies[i+1] = new String(Base.moviesList[i].moviename);
             }
             ArrayAdapter<String> movieList = new ArrayAdapter<>(conditional_booking1.this,
@@ -87,10 +99,10 @@ public class conditional_booking1 extends AppCompatActivity {
                 public void onItemSelected(AdapterView<?>parent,View view,int position,long id){
                     if (position>0) {
                         movieorder = position-1;
-                        String[] time = new String[Base.moviesList[movieorder].time.length+1];
+                        String[] time = new String[Base.moviesList.get(movieorder).time.length+1];
                         time[0]="請選擇場次";
-                        for (int i = 0; i < Base.moviesList[movieorder].time.length; i++) {
-                            time[i+1] = new String(Base.moviesList[movieorder].time[i].getinfo());
+                        for (int i = 0; i < Base.moviesList.get(movieorder).time.length; i++) {
+                            time[i+1] = new String(Base.moviesList.get(movieorder).time[i].getinfo());
                         }
                         ArrayAdapter<String> timeList = new ArrayAdapter<>(conditional_booking1.this,
                                 android.R.layout.simple_spinner_dropdown_item,
@@ -125,4 +137,4 @@ public class conditional_booking1 extends AppCompatActivity {
             Toast.makeText(conditional_booking1.this,e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
-}
+
