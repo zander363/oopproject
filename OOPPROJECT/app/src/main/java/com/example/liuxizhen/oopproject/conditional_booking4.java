@@ -40,6 +40,9 @@ public class conditional_booking4 extends AppCompatActivity {
             name = bundle.getString( "name" );
             age = bundle.getString( "age" );
             movieorder = bundle.getString( "movieorder" );
+            continuity = bundle.getString( "continuity" );
+            assign = bundle.getString( "assign" );
+            assignrow = bundle.getString( "assignrow" );
 
             confirmation.setOnClickListener(new View.OnClickListener() {
                 @Override

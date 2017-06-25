@@ -9,7 +9,8 @@ public class Search{
 	 * @return Movies[] is mean all the movies adapt to the condition
 	 */
 	public static Movie[] searchRate(int rate){
-        return null;
+
+		return null;
     };
 	/**
 	 * this method is to search the inofrmation about the ticket
