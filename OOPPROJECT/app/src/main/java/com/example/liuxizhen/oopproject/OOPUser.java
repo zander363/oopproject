@@ -54,7 +54,7 @@ public class OOPUser {
 	public User get(String name,int age){
 		User user=null;
 
-		String where=NAME_COLUMN+"="+name+" AND "+AGE_COLUMN+"="+age;
+		String where=NAME_COLUMN+" = \'"+name+"\' AND "+AGE_COLUMN+" = "+age;
 
 		Cursor result=db.query(TABLE_NAME,null,where,null,null,null,null,null);
 
