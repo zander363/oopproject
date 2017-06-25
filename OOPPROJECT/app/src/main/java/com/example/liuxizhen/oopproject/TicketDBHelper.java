@@ -3,6 +3,7 @@ package com.example.liuxizhen.oopproject;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
 
 public class TicketDBHelper extends SQLiteOpenHelper {
 
@@ -26,8 +27,7 @@ public class TicketDBHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db,
-                          int oldVersion, int newVersion) {
+    public void onUpgrade(SQLiteDatabase db,int oldVersion,int newVersion) {
 	    db.execSQL("DROP TABLE IF EXISTD"+"oop.user");
 	    onCreate(db);
 
