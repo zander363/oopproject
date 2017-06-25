@@ -1,4 +1,4 @@
-package com.example.liuxizhen.oopproject;
+﻿package com.example.liuxizhen.oopproject;
 
 import android.content.Context;
 
@@ -35,7 +35,7 @@ public class OOPUser{
 	static OkHttpClient client = new OkHttpClient();
 
 	public OOPUser(Context context){
-		db=MyDBHelper.getDatabase(context);
+		db=UserDBHelper.getDatabase(context);
 	}
 
 	public void close(){
@@ -81,7 +81,7 @@ public class OOPUser{
 	}
 
 
-	public static void connect(){
+	public static String connect(){
 
 
 		Request request = new Request.Builder()
@@ -94,7 +94,7 @@ public class OOPUser{
 				String json = response.body().string();
 				Log.d("OKHTTP", json);
 				//解析JSON
-				loadSameple(json);
+				return json;
 			}
 			@Override
 			public void onFailure(Call call, IOException e) {
@@ -103,9 +103,9 @@ public class OOPUser{
 			}
 		});
 	};
-	public static void loadSameple(String s){
+	public void loadSample(){
 		try {
-			;
+			String s=connect();
 			JSONArray array = new JSONArray(s);
 			for (int i = 0; i < array.length(); i++) {
 				JSONObject obj = array.getJSONObject(i);
@@ -113,7 +113,7 @@ public class OOPUser{
 				String name=obj.getString(("name"));
 				int age=obj.getInt("age");
 				User a = new User(name,age,index);
-				usersList.add(a);
+				insert(a);
 			}
 
 		}catch(JSONException e){

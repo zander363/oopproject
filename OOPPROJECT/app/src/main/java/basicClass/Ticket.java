@@ -5,18 +5,21 @@ public class Ticket{
 	public String movieID;
 	public String seatID;
 	public String ticketID;
+	public ourtime time
 	public Ticket(){
+		ticketID="";
 		userID="";
 		movieID="";
 		seatID="";
-		ticketID="";
+		time=new ourtime();
 
 	}
-	public Ticket(String userID,String movieID,String seatID,String ticketID){
+	public Ticket(String ticketID,String userID,String movieID,String seatID,ourtime time){
 		this.ticketID=ticketID;
 		this.seatID=seatID;
 		this.movieID=movieID;
 		this.userID=userID;
+		this.time=time;
 	}
 	/**
 	 *
