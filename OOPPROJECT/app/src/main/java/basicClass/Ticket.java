@@ -5,7 +5,7 @@ public class Ticket{
 	public String movieID;
 	public String seatID;
 	public String ticketID;
-	public ourtime time
+	public ourtime time;
 	public Ticket(){
 		ticketID="";
 		userID="";

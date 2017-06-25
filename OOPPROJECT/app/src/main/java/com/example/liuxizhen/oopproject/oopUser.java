@@ -1,7 +1,9 @@
 ﻿package com.example.liuxizhen.oopproject;
 
+import android.content.ContentValues;
 import android.content.Context;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import basicClass.*;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -67,14 +69,14 @@ public class OOPUser{
 	}
 
 	public User getRecord(Cursor cursor){
-		User result=new User(cusor.getString(1),cursor.getInt(2),cursor.getInt(0));
+		User result=new User(cursor.getString(1),cursor.getInt(2),cursor.getInt(0));
 		return result;
 	}
 
 	public int getCount(){
 		int result =0;
 		Cursor cursor=db.rawQuery("SELECT COUNT(*) FROM"+TABLE_NAME,null);
-		if(cursor.movieToNwxt()){
+		if(cursor.movieToNext()){
 			result=cursorInt(0);
 		}
 		return result;
@@ -94,7 +96,7 @@ public class OOPUser{
 				String json = response.body().string();
 				Log.d("OKHTTP", json);
 				//解析JSON
-				return json;
+				loadSample(json);
 			}
 			@Override
 			public void onFailure(Call call, IOException e) {
@@ -103,9 +105,8 @@ public class OOPUser{
 			}
 		});
 	};
-	public void loadSample(){
+	public static void loadSample(String s){
 		try {
-			String s=connect();
 			JSONArray array = new JSONArray(s);
 			for (int i = 0; i < array.length(); i++) {
 				JSONObject obj = array.getJSONObject(i);
@@ -113,7 +114,7 @@ public class OOPUser{
 				String name=obj.getString(("name"));
 				int age=obj.getInt("age");
 				User a = new User(name,age,index);
-				insert(a);
+				usersList.add( a );
 			}
 
 		}catch(JSONException e){
