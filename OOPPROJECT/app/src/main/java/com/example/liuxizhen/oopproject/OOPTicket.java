@@ -49,6 +49,10 @@ public class OOPTicket{
 		result.close();
 		return ticket;
 	}
+        public boolean delete(int id){
+            String where = KEY_ID + "=" + id;
+            return db.delete(TABLE_NAME, where , null) > 0;
+        }
 
 	public Ticket getRecord(Cursor cursor){
 		Ticket result=new Ticket(cusor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3));
@@ -63,6 +67,5 @@ public class OOPTicket{
 		}
 		return result;
 	}
-	public void loadSameple(){
-	}
+
 }
