@@ -22,11 +22,14 @@ public class UserDBHelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(OOPUser.CREATE_TABLE);
+        db.execSQL(OOPUser.CREATE_TABLE);{
+            db.execSQL(OOPUser.CREATE_TABLE);
+        }
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + OOPUser.TABLE_NAME);
 
         onCreate(db);
     }
