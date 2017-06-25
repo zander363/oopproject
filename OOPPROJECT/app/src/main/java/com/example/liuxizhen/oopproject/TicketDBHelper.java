@@ -7,6 +7,10 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 
 public class TicketDBHelper extends SQLiteOpenHelper {
 
+    public static final String DATABASE_NAME = "oop.movie";
+    public static final int VERSION = 1;
+    private static SQLiteDatabase database;
+
     public TicketDBHelper(Context context, String name,
                       SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);

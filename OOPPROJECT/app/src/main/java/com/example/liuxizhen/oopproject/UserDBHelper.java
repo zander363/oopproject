@@ -5,6 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class UserDBHelper extends SQLiteOpenHelper {
+    public static final String DATABASE_NAME = "oop.movie";
+    public static final int VERSION = 1;
+    private static SQLiteDatabase database;
 
     public UserDBHelper(Context context, String name,
                       SQLiteDatabase.CursorFactory factory, int version) {
