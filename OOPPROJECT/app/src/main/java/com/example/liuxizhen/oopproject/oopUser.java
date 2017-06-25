@@ -49,7 +49,7 @@ public class OOPUser{
 		cv.put(NAME_COLUMN,user.id);
 		cv.put(AGE_COLUMN,user.age);
 		long id=db.insert(TABLE_NAME,null,cv);
-		user.setId(id);
+		user.id=(int)id;
 
 		return user;
 	}
@@ -76,8 +76,8 @@ public class OOPUser{
 	public int getCount(){
 		int result =0;
 		Cursor cursor=db.rawQuery("SELECT COUNT(*) FROM"+TABLE_NAME,null);
-		if(cursor.movieToNext()){
-			result=cursorInt(0);
+		if(cursor.moveToNext()){
+			result=cursor.getInt(0);
 		}
 		return result;
 	}
