@@ -6,11 +6,19 @@ import android.database.sqlite.SQLiteDatabase;
 import basicClass.*;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import res.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class OOPUser{
@@ -24,6 +32,7 @@ public class OOPUser{
 	private SQLiteDatabase db;
 
 	public static ArrayList<User> usersList=new ArrayList<>();
+	static OkHttpClient client = new OkHttpClient();
 
 	public OOPUser(Context context){
 		db=MyDBHelper.getDatabase(context);
@@ -70,9 +79,33 @@ public class OOPUser{
 		}
 		return result;
 	}
-	public void loadSameple(){
+
+
+	public static void connect(){
+
+
+		Request request = new Request.Builder()
+				.url("https://gist.githubusercontent.com/ychins1340/62676449991ed2eee47b93394ad13760/raw/b2683c0d5bd5c2c1b2a19ea2fe5cbe5afd9fe069/user.json")
+				.build();
+		Call call = client.newCall(request);
+		call.enqueue(new Callback() {
+			@Override
+			public void onResponse(Call call, Response response) throws IOException {
+				String json = response.body().string();
+				Log.d("OKHTTP", json);
+				//解析JSON
+				loadSameple(json);
+			}
+			@Override
+			public void onFailure(Call call, IOException e) {
+				//告知使用者連線失敗
+
+			}
+		});
+	};
+	public static void loadSameple(String s){
 		try {
-			String s = json.user;
+			;
 			JSONArray array = new JSONArray(s);
 			for (int i = 0; i < array.length(); i++) {
 				JSONObject obj = array.getJSONObject(i);
