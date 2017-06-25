@@ -14,10 +14,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL("CREATE  TABLE oop.user " +
-                "(id INTEGER PRIMARY KEY  NOT NULL , " +
-                "name TEXT NOT NULL , " +
-                "age INTEGER)");
+        db.execSQL(oopUser.CREATE_TABLE);
 
 
     }
@@ -25,6 +22,8 @@ public class MyDBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db,
                           int oldVersion, int newVersion) {
+	    db.execSQL("DROP TABLE IF EXISTD"+"oop.user");
+	    onCreate(db);
 
     }
 
