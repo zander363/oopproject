@@ -24,7 +24,7 @@ public class conditional_booking3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.conditional_booking3);
         confirmation = (Button) findViewById(R.id.confirmation);
-            input_age=(EditText)findViewById(R.id.)
+            input_age=(EditText)findViewById(R.id.input_age);
 
         confirmation.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -8,6 +8,10 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 import android.util.Log;
+import android.widget.Toast;
+
+import com.example.liuxizhen.oopproject.MainActivity;
+import com.example.liuxizhen.oopproject.booking2;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,6 +51,7 @@ public class Base{
 			@Override
 			public void onFailure(Call call, IOException e) {
 				//告知使用者連線失敗
+
 			}
 		});
 	};
@@ -60,7 +65,7 @@ public class Base{
 				String id = obj.getString("id");
 				ourtime[] time = new ourtime[obj.getString("time").split( "、" ).length];
 				String timeLogStr="";
-				for(int j=0; i<obj.getString("time").split( "、" ).length; j++){
+				for(int j=0; j<obj.getString("time").split( "、" ).length; j++){
 					time[j] = new ourtime(obj.getString("time").split( "、" )[j]);
 					timeLogStr += obj.getString("time").split( "、" )[j];
 				}

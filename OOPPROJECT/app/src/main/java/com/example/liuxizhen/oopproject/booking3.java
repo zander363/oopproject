@@ -48,8 +48,8 @@ public class booking3 extends AppCompatActivity {
                     startActivity( intent );
                 }
             } );
-            if (Integer.parseInt( age) < Base.moviesList[Integer.parseInt( movieorder )].level) {
-                switch (Base.moviesList[Integer.parseInt( movieorder )].level) {
+            if (Integer.parseInt( age) < Base.moviesList.get( Integer.parseInt( movieorder ) ).level) {
+                switch (Base.moviesList.get( Integer.parseInt( movieorder ) ).level) {
                     case 6:
                         booking_result.setText( "失敗，該電影分級為保護級，" + age + "歲無法購買" );
                         break;
@@ -64,10 +64,10 @@ public class booking3 extends AppCompatActivity {
             else {
 
                 booking_result.setText(
-                        "電影名稱：" + movie + "\n" +
-                                "場次：" + time + "\n" +
-                                "張數：" + number_sheets + "\n" +
-                                "年齡：" + age + "\n" +
+                        "電影名稱：" + movie + "\n\n" +
+                                "場次：" + time + "\n\n" +
+                                "張數：" + number_sheets + "\n\n" +
+                                "年齡：" + age + "\n\n" +
                                 "名字：" + name + "\n"
 
                 );

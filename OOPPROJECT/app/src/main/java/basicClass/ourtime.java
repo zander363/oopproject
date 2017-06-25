@@ -24,8 +24,8 @@ public class ourtime {
 
     public ourtime(String a){
         String[] b=a.split("：");
-        hour=Integer.valueOf(b[0]);
-        minute=Integer.valueOf(b[1]);
+        hour=Integer.parseInt(b[0].trim());
+        minute=Integer.parseInt(b[1].trim());
         settotal_minute();
     }
 
