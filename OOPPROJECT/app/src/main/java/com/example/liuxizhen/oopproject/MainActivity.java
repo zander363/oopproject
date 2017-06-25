@@ -1,4 +1,4 @@
-﻿package com.example.liuxizhen.oopproject;
+package com.example.liuxizhen.oopproject;
 
 import android.content.Intent;
 import android.os.Bundle;
