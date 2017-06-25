@@ -16,6 +16,7 @@ public class conditional_booking1 extends AppCompatActivity {
     private EditText number_input;
     private CheckBox checkcontinue;
     private CheckBox checkassign;
+    private CheckBox checkassignrow;
     private int movieorder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class conditional_booking1 extends AppCompatActivity {
         time_spinner = (Spinner)findViewById(R.id.time_spinner);
         checkcontinue = (CheckBox) findViewById(R.id.checkcontinue);
         checkassign = (CheckBox)findViewById(R.id.checkassign);
-
+        checkassignrow = (CheckBox)findViewById(R.id.checkassignrow);
 
         confirmation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,20 +36,37 @@ public class conditional_booking1 extends AppCompatActivity {
                 if(!"請選擇電影".equals(movies_spinner.getSelectedItem().toString())&&
                         !"請選擇場次".equals(time_spinner.getSelectedItem().toString())&&
                         !"".equals(number_input.getText().toString())){
+                    if(checkassign.isChecked()||checkassignrow.isChecked()){
+                        if(checkassign.isChecked()&&)
 
                     Intent intent = new Intent();
-                    intent.setClass(conditional_booking1.this, booking2.class);
+                    intent.setClass(conditional_booking1.this, conditional_booking2.class);
                     intent.putExtra("number_sheets", number_input.getText().toString());
                     intent.putExtra("movie", movies_spinner.getSelectedItem().toString());
                     intent.putExtra("time", time_spinner.getSelectedItem().toString());
                     intent.putExtra("movieorder", movieorder);
+                        intent.putExtra("assign",checkassign.isChecked());
+                        intent.putExtra("assignrow",checkassignrow.isChecked());
+                        intent.putExtra("continue",checkcontinue.isChecked());
                     //把字串傳到第二個Activity
-                    startActivity(intent);}
+                    startActivity(intent);
+                    }
+                    else{
+                    Intent intent = new Intent();
+                    intent.setClass(conditional_booking1.this, conditional_booking3.class);
+                    intent.putExtra("number_sheets", number_input.getText().toString());
+                    intent.putExtra("movie", movies_spinner.getSelectedItem().toString());
+                    intent.putExtra("time", time_spinner.getSelectedItem().toString());
+                    intent.putExtra("movieorder", movieorder);
+                        intent.putExtra("continue",checkcontinue.isChecked());
+                    //把字串傳到第二個Activity
+                    startActivity(intent);
+                    }
                 else{
                     Toast.makeText(conditional_booking1.this,"有問題尚未回答", Toast.LENGTH_SHORT).show();
                 }
             }
-        });
+        );
 
 
 

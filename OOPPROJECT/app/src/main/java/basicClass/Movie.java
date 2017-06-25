@@ -33,7 +33,28 @@ public class Movie{
 	 */
 	public String showInfo(){
         return "ID:"+id+", time:"+time+", level:"+level+", place:"+place;
-    };
+    }
+    public String determine_theater(){
+		switch(this.place){
+			case "武當廳":
+				return "大廳";
+			case "少林廳":
+				return "大廳";
+			case "華山廳":
+				return "大廳";
+			case "峨嵋廳":
+				return "小廳";
+			case "崆峒廳":
+				return "小廳";
+			default:
+				return null;
+
+
+		}
+
+	}
+
+
 
 }
 
