@@ -24,8 +24,8 @@ public class ourtime {
 
     public ourtime(String a){
         String[] b=a.split("：");
-        hour=Integer.parseInt(b[0].trim());
-        minute=Integer.parseInt(b[1].trim());
+        hour=Integer.parseInt(b[0]);
+        minute=Integer.parseInt(b[1]);
         settotal_minute();
     }
 
@@ -35,9 +35,11 @@ public class ourtime {
 
     public String getinfo() {
         String hour= String.valueOf(this.hour);
-        String minute=String.valueOf(this.hour);
-        if(this.hour/10==0)hour="0"+this.hour;
-        if(this.minute/10==0)minute="0"+this.minute;
+        String minute=String.valueOf(this.minute);
+        if(this.hour/10==0)
+            hour="0"+this.hour;
+        if(this.minute/10==0)
+            minute="0"+this.minute;
 
         return hour + ":" + minute;
     }
