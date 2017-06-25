@@ -85,7 +85,7 @@ public class OOPUser {
 
 
 		Request request = new Request.Builder()
-				.url("https://github.com/zander363/oopproject/blob/master/OOPPROJECT/json/user.json")
+				.url("https://raw.githubusercontent.com/zander363/oopproject/master/OOPPROJECT/json/user.json")
 				.build();
 		Call call = client.newCall(request);
 		call.enqueue(new Callback() {
