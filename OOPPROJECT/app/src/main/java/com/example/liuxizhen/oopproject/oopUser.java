@@ -1,7 +1,17 @@
-package com.example.liuxizhwn.oopproject;
-import
+package com.example.liuxizhen.oopproject;
 
-import android.context.Context;
+import android.content.Context;
+
+import android.database.sqlite.SQLiteDatabase;
+import basicClass.*;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteOpenHelper;
+import res.*;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class OOPUser{
 	public static final String TABLE_NAME="user";
@@ -12,6 +22,8 @@ public class OOPUser{
 	public static final String AGE_COLUMN= "age";
 	public static final String CREATE_TABLE="CREATE TABLE "+TABLE_NAME+"("+KEY_ID+"INTEGER PRIMARY KEY AUTOINCREMENT,"+NAME_COLUMN+"TEXT NOT NULL,"+AGE_COLUMN+"INTEGER NOT NOT NULL)"; 
 	private SQLiteDatabase db;
+
+	public static ArrayList<User> usersList=new ArrayList<>();
 
 	public OOPUser(Context context){
 		db=MyDBHelper.getDatabase(context);
@@ -59,5 +71,22 @@ public class OOPUser{
 		return result;
 	}
 	public void loadSameple(){
+		try {
+			String s = json.user;
+			JSONArray array = new JSONArray(s);
+			for (int i = 0; i < array.length(); i++) {
+				JSONObject obj = array.getJSONObject(i);
+				int index = obj.getInt("index");
+				String name=obj.getString(("name"));
+				int age=obj.getInt("age");
+				User a = new User(name,age,index);
+				usersList.add(a);
+			}
+
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+
+
 	}
 }
