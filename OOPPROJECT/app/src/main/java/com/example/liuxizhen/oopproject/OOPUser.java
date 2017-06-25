@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import basicClass.*;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -65,6 +66,18 @@ public class OOPUser {
 		result.close();
 		return user;
 	}
+	public List<User> getAll() {
+		List<User> result = new ArrayList<>();
+		Cursor cursor = db.query(
+				TABLE_NAME, null, null, null, null, null, null, null);
+
+		while (cursor.moveToNext()) {
+			result.add(getRecord(cursor));
+		}
+
+		cursor.close();
+		return result;
+	}
 
 	public User getRecord(Cursor cursor){
 		User result=new User(cursor.getString(1),cursor.getInt(2),cursor.getInt(0));
@@ -85,7 +98,7 @@ public class OOPUser {
 
 
 		Request request = new Request.Builder()
-				.url("https://github.com/zander363/oopproject/blob/master/OOPPROJECT/json/user.json")
+				.url("https://raw.githubusercontent.com/zander363/oopproject/master/OOPPROJECT/json/user.json")
 				.build();
 		Call call = client.newCall(request);
 		call.enqueue(new Callback() {

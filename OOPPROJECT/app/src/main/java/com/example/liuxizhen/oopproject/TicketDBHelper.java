@@ -25,11 +25,12 @@ public class TicketDBHelper extends SQLiteOpenHelper {
     }
         @Override
         public void onCreate(SQLiteDatabase db) {
-
+            db.execSQL(OOPTicket.CREATE_TABLE);
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+            db.execSQL("DROP TABLE IF EXISTS " + OOPTicket.TABLE_NAME);
 
             onCreate(db);
         }

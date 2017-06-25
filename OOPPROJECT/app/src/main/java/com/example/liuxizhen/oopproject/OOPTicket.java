@@ -20,7 +20,7 @@ public class OOPTicket {
 	public static final String SEAT_COLUMN = "seatid";
 	public static final String TIME_COLUMN = "time";
 
-	public static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + "(" + KEY_ID + "INTEGER PRIMARY KEY AUTOINCREMENT," + USER_COLUMN + "TEXT NOT NULL," + MOVIE_COLUMN + "INTEGER NOT NOT NULL" + TIME_COLUMN + "TEXT NOT NULL)";
+	public static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + USER_COLUMN + " TEXT NOT NULL," + MOVIE_COLUMN + " INTEGER NOT NULL " + TIME_COLUMN + " TEXT NOT NULL)";
 	private SQLiteDatabase db;
 
 	public OOPTicket(Context context) {
@@ -39,14 +39,13 @@ public class OOPTicket {
 		cv.put( SEAT_COLUMN, ticket.seatID );
 		cv.put( TIME_COLUMN, ticket.time.getinfo() );
 		long id = db.insert( TABLE_NAME, null, cv );
-		ticket.ticketID = Long.toString( id );
 		return ticket;
 	}
 
 	public Ticket get(String id) {
 		Ticket ticket = null;
 
-		String where = KEY_ID + "=" + id;
+		String where = KEY_ID + " = " + id;
 
 		Cursor result = db.query( TABLE_NAME, null, where, null, null, null, null, null );
 
@@ -59,18 +58,18 @@ public class OOPTicket {
 	}
 
 	public boolean delete(int id) {
-		String where = KEY_ID + "=" + id;
+		String where = KEY_ID + " = " + id;
 		return db.delete( TABLE_NAME, where, null ) > 0;
 	}
 
 	public Ticket getRecord(Cursor cursor) {
-		Ticket result = new Ticket( cursor.getString( 0 ), cursor.getString( 1 ), cursor.getString( 2 ), cursor.getString( 3 ), new ourtime( cursor.getString( 4 ) ) );
+		Ticket result = new Ticket(  cursor.getString( 1 ), cursor.getString( 2 ), cursor.getString( 3 ), new ourtime( cursor.getString( 4 ) ) );
 		return result;
 	}
 
 	public int getCount() {
 		int result = 0;
-		Cursor cursor = db.rawQuery( "SELECT COUNT(*) FROM" + TABLE_NAME, null );
+		Cursor cursor = db.rawQuery( "SELECT COUNT(*) FROM " + TABLE_NAME, null );
 		if (cursor.moveToNext()) {
 			result = cursor.getInt( 0 );
 		}

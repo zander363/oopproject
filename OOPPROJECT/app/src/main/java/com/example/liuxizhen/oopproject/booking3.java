@@ -34,6 +34,7 @@ public class booking3 extends AppCompatActivity {
             booking_result = (TextView) findViewById( R.id.booking_result );
             context=getApplicationContext();
             OOPUser oopuser = new OOPUser(getApplicationContext());
+            OOPTicket oopticket = new OOPTicket(getApplicationContext());
 
             Bundle bundle = this.getIntent().getExtras();
             number_sheets = bundle.getString( "number_sheets" );
@@ -44,6 +45,10 @@ public class booking3 extends AppCompatActivity {
             movieorder = bundle.getString( "movieorder" );
 
             User user=oopuser.get(name,Integer.parseInt(age));
+            //User user=oopuser.getAll().get(0);
+            //Ticket(user.id,time)
+
+            //oopticket.insert();
 
 
             confirmation.setOnClickListener( new View.OnClickListener() {
