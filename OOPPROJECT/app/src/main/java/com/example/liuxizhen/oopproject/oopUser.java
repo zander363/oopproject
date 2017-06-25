@@ -23,7 +23,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class OOPUser{
+public class oopUser {
 	public static final String TABLE_NAME="user";
 	
 	public static final String KEY_ID= "_id";
@@ -36,7 +36,7 @@ public class OOPUser{
 	public static ArrayList<User> usersList=new ArrayList<>();
 	static OkHttpClient client = new OkHttpClient();
 
-	public OOPUser(Context context){
+	public oopUser(Context context){
 		db=UserDBHelper.getDatabase(context);
 	}
 

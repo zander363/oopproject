@@ -23,7 +23,7 @@ public class UserDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        db.execSQL(com.example.liuxizhen.oopproject.OOPUser.CREATE_TABLE);
+        db.execSQL(oopUser.CREATE_TABLE);
 
 
     }
