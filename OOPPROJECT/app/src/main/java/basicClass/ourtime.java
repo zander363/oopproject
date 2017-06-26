@@ -33,12 +33,6 @@ public class ourtime {
         total_minute=60*hour+minute;
     }
 
-    public boolean isearlierto(ourtime x){
-        if(this.total_minute>x.total_minute)return false;
-        else return true;
-
-    }
-
     public String getinfo() {
         String hour= String.valueOf(this.hour);
         String minute=String.valueOf(this.minute);
@@ -47,7 +41,7 @@ public class ourtime {
         if(this.minute/10==0)
             minute="0"+this.minute;
 
-        return hour + ":" + minute;
+        return hour + "：" + minute;
     }
 
     public int getHour() {
