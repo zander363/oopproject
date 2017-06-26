@@ -116,14 +116,6 @@ public class conditional_booking2a extends AppCompatActivity {
             }
 
 
-
-
-
-
-
-
-
-
     }catch (Exception e){
             Toast.makeText(conditional_booking2a.this,e.getMessage(), Toast.LENGTH_SHORT).show();
         }
