@@ -57,4 +57,5 @@ public class SmallSeat extends Seat{
         seatNum=c;
         occupied=d;
     }
+
 }
