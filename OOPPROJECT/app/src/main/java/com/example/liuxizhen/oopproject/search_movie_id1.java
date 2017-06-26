@@ -18,6 +18,7 @@ public class search_movie_id1 extends AppCompatActivity {
         confirmation = (Button) findViewById(R.id.confirmation);
         input_movie_ID=(EditText)findViewById(R.id.input_movie_ID);
 
+
         confirmation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
