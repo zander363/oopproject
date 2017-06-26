@@ -18,12 +18,12 @@ public class BigSeat extends Seat{
             region="";
 
         }
-        public BigSeat(String a,String b,int c, Boolean d,String e){
-            seatid=a;
-            row=b;
-            seatNum=c;
-            occupied=d;
-            region=e;
+        public BigSeat(String seatid,String row,int seatNum, Boolean occupied,String region){
+            this.seatid=seatid;
+            this.row=row;
+            this.seatNum=seatNum;
+            this.occupied=occupied;
+            this.region=region;
         }
 
     }

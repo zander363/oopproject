@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class OOPSmallSeat {
 
-	public String TABLE_NAME;
+	public String TABLE_NAME="smallseat";
 	
 	public static final String KEY_ID= "_id";
 
@@ -116,7 +116,7 @@ public class OOPSmallSeat {
 
 
 		Request request = new Request.Builder()
-				.url("https://raw.githubusercontent.com/zander363/oopproject/master/OOPPROJECT/json/user.json")
+				.url("https://raw.githubusercontent.com/zander363/oopproject/master/OOPPROJECT/json/small_room.json")
 				.build();
 		Call call = client.newCall(request);
 		call.enqueue(new Callback() {
@@ -140,8 +140,8 @@ public class OOPSmallSeat {
 
 				String id=obj.getString(("id"));
 				String row=obj.getString(("row"));
-				int num = obj.getInt("seatNum");
-				Boolean occ=obj.getString("occupied")=="true";
+				int num = Integer.parseInt( obj.getString("seatNum") );
+				Boolean occ=Boolean.parseBoolean(obj.getString("occupied").trim());
 				SmallSeat a = new SmallSeat(id,row,num,occ);
 				insert(a);
 			}
