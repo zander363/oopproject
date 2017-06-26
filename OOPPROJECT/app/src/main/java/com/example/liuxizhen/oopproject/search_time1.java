@@ -34,6 +34,7 @@ public class search_time1 extends AppCompatActivity {
         start_time = (Button) findViewById(R.id.timestart);
         end_time = (Button) findViewById(R.id.timeend);
         confirmation = (Button) findViewById(R.id.confirmation);
+
         GregorianCalendar calendar = new GregorianCalendar();
 
         confirmation.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +42,8 @@ public class search_time1 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(search_time1.this, search_time2.class);
+                intent.putExtra("starttime",start_ourtime.toString());
+                intent.putExtra("endtime",end_ourtime.toString());
                 startActivity(intent);
 
             }
