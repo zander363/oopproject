@@ -85,7 +85,7 @@ public class booking3 extends AppCompatActivity {
 
                 );
 
-                if(Base.moviesList.get( Integer.parseInt( movieorder ) ).determine_theater()=="大廳")
+                if("大廳".equals(Base.moviesList.get( Integer.parseInt( movieorder ) ).determine_theater()))
                 {Integer i;
 
                     OOPBigSeat oopBigSeat=new OOPBigSeat(context,new ourtime(time),Base.moviesList.get( Integer.parseInt( movieorder ) ).moviename);
