@@ -28,7 +28,7 @@ import okhttp3.Response;
  */
 
 public class OOPBigSeat {
-    public String TABLE_NAME="bigseat";
+    public static String TABLE_NAME="bigseat";
 
     public static final String KEY_ID= "_id";
 

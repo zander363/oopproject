@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class OOPSmallSeat {
 
 
-	public String TABLE_NAME="smallseat";
+	public static String TABLE_NAME="smallseat";
 
 	
 	public static final String KEY_ID= "_id";
