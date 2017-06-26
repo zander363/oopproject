@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import basicClass.Movie;
+import basicClass.*;
 import basicMethod.Base;
 
 public class search_time2 extends AppCompatActivity {
@@ -24,16 +24,27 @@ public class search_time2 extends AppCompatActivity {
         setContentView(R.layout.search_time2);
         confirmation = (Button) findViewById(R.id.confirmation);
         TextView search_time_result=(TextView)findViewById(R.id.search_time_result);
+        Bundle bundle = this.getIntent().getExtras();
+
+        start = bundle.getString( "starttime" );
+        end = bundle.getString( "endtime" );
+
         ArrayList<Movie> movies=new ArrayList<>();
         int i;
-        for(i=0; i< Base.moviesList.size(); i++){
-            if(start_time.isearlierto(Base.moviesList.get(i).time){
-                movies.add(Base.moviesList.get(i));
+        if(start!=null){
+
+
+            for(i=0; i< Base.moviesList.size(); i++){
+                if(new ourtime(start).isearlierto((Base.moviesList.get(i)).time[0])){
+                    movies.add(Base.moviesList.get(i));
+                }
             }
         }
-        for(i=0; i< Base.moviesList.size(); i++){
-            if(end_time.isearlierto(Base.moviesList.get(i).time){
-                movies.remove(i);
+        if(end!=null){
+            for(i=0; i< Base.moviesList.size(); i++) {
+                if (new ourtime(end).isearlierto((Base.moviesList.get(i)).time[0])) {
+                    movies.remove(i);
+                }
             }
         }
         if(movies.size()>=0) {
@@ -47,11 +58,6 @@ public class search_time2 extends AppCompatActivity {
             search_time_result.setText("查無此號");
         }
 
-
-        Bundle bundle = this.getIntent().getExtras();
-
-        start = bundle.getString( "starttime" );
-        end = bundle.getString( "endtime" );
 
         confirmation.setOnClickListener(new View.OnClickListener() {
             @Override
