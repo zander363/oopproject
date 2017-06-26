@@ -1,5 +1,6 @@
 package com.example.liuxizhen.oopproject;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import basicClass.User;
 import basicMethod.Base;
 
 public class conditional_booking4 extends AppCompatActivity {
@@ -22,6 +24,7 @@ public class conditional_booking4 extends AppCompatActivity {
     private String assignrow;
     private String age;
     private String name;
+    Context context;
 
 
     @Override
@@ -31,6 +34,12 @@ public class conditional_booking4 extends AppCompatActivity {
             setContentView(R.layout.conditional_booking4);
             confirmation = (Button) findViewById(R.id.confirmation);
             conditional_booking_result = (TextView) findViewById((R.id.conditional_booking_result));
+            context=getApplicationContext();
+            OOPUser oopuser = new OOPUser(getApplicationContext());
+            OOPTicket oopticket = new OOPTicket(getApplicationContext());
+
+            User user=oopuser.get(name,Integer.parseInt(age));
+
 
             Bundle bundle = this.getIntent().getExtras();
 
@@ -77,6 +86,8 @@ public class conditional_booking4 extends AppCompatActivity {
                                 "名字：" + name + "\n"
 
                 );
+
+
 
             }
 
