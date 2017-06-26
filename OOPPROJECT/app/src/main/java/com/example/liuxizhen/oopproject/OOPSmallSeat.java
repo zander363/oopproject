@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class OOPSmallSeat {
 
 
-	public static String TABLE_NAME="smallseat";
+	public static final String TABLE_NAME="smallseat";
 
 	
 	public static final String KEY_ID= "_id";
@@ -33,27 +33,32 @@ public class OOPSmallSeat {
 	public static final String ROW_COLUMN= "row";
 	public static final String NUM_COLUMN= "seatnum";
 	public static final String OCC_COLUMN= "occupied";
-	public static String CREATE_TABLE="CREATE TABLE IF NOT EXISTS "+TABLE_NAME+" ("+KEY_ID+" TEXT PRIMARY KEY AUTOINCREMENT, "+ROW_COLUMN+" TEXT NOT NULL, "+NUM_COLUMN+" INTEGER NOT NULL"+OCC_COLUMN+" TEXT NOT NULL)";
+	public static final String MOVIE_COLUMN="movie";
+	public static final String TIME_COLUMN="time";
+	public static final String CREATE_TABLE="CREATE TABLE IF NOT EXISTS "+TABLE_NAME+" ("+KEY_ID+" TEXT PRIMARY KEY AUTOINCREMENT, "
+			+MOVIE_COLUMN+" TEXT NOT NULL, "+TIME_COLUMN+" TEXT NOT NULL, "
+			+ROW_COLUMN+" TEXT NOT NULL, "+NUM_COLUMN+" INTEGER NOT NULL"+OCC_COLUMN+" TEXT NOT NULL)";
 	private SQLiteDatabase db;
 
 	public static ArrayList<User> usersList=new ArrayList<>();
 	static OkHttpClient client = new OkHttpClient();
 
 	public OOPSmallSeat(Context context,String movie,ourtime time){
-		TABLE_NAME=movie+time.toString();
 		db=UserDBHelper.getDatabase(context);
 	}
 
 	public void close(){
 		db.close();
 	}
-	public boolean update(SmallSeat seat){
+	public boolean update(SmallSeat seat,ourtime time,String movie){
 		ContentValues cv=new ContentValues();
 
 		cv.put(KEY_ID, seat.seatid);
 		cv.put(ROW_COLUMN, seat.row);
 		cv.put(NUM_COLUMN, seat.seatNum);
 		cv.put(OCC_COLUMN, seat.occupied);
+		cv.put(MOVIE_COLUMN, movie);
+		cv.put(TIME_COLUMN, time.toString());
 
 
 		// 設定修改資料的條件為編號
@@ -77,13 +82,16 @@ public class OOPSmallSeat {
 		result.close();
 		return seat;
 	}
-	public SmallSeat insert(SmallSeat seat) {
+	public SmallSeat insert(SmallSeat seat,ourtime time,String movie) {
 		ContentValues cv = new ContentValues();
+
 
 		cv.put(KEY_ID, seat.seatid);
 		cv.put(ROW_COLUMN, seat.row);
 		cv.put(NUM_COLUMN, seat.seatNum);
 		cv.put(OCC_COLUMN, seat.occupied);
+		cv.put(MOVIE_COLUMN, movie);
+		cv.put(TIME_COLUMN, time.toString());
 		return seat;
 	}
 	public List<SmallSeat> getAll() {
@@ -97,6 +105,22 @@ public class OOPSmallSeat {
 
 		cursor.close();
 		return result;
+	}
+	public boolean update(BigSeat seat,ourtime time,String movie) {
+		// 建立準備修改資料的ContentValues物件
+		ContentValues cv = new ContentValues();
+
+		cv.put(KEY_ID, seat.seatid);
+		cv.put(ROW_COLUMN, seat.row);
+		cv.put(NUM_COLUMN, seat.seatNum);
+		cv.put(OCC_COLUMN, seat.occupied);
+
+		// 設定修改資料的條件為編號
+		// 格式為「欄位名稱＝資料」
+		String where = KEY_ID + "=" + seat.seatid;
+
+		// 執行修改資料並回傳修改的資料數量是否成功
+		return db.update(TABLE_NAME, cv, where, null) > 0;
 	}
 
 	public SmallSeat getRecord(Cursor cursor){
@@ -137,6 +161,9 @@ public class OOPSmallSeat {
 	public void loadSample(String s){
 		try {
 			JSONArray array = new JSONArray(s);
+
+			ourtime time=null;
+			String movie= null;
 			for (int i = 0; i < array.length(); i++) {
 				JSONObject obj = array.getJSONObject(i);
 
@@ -145,7 +172,7 @@ public class OOPSmallSeat {
 				int num = Integer.parseInt( obj.getString("seatNum") );
 				Boolean occ=Boolean.parseBoolean(obj.getString("occupied").trim());
 				SmallSeat a = new SmallSeat(id,row,num,occ);
-				insert(a);
+				insert(a,time,movie);
 			}
 
 		}catch(JSONException e){

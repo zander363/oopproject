@@ -147,6 +147,8 @@ public class OOPBigSeat {
     public void loadSample(String s){
         try {
             JSONArray array = new JSONArray(s);
+            ourtime time=null;
+            String movie=null;
             for (int i = 0; i < array.length(); i++) {
                 JSONObject obj = array.getJSONObject(i);
 
@@ -156,7 +158,7 @@ public class OOPBigSeat {
                 Boolean occ=Boolean.parseBoolean(obj.getString("occupied").trim());
                 String region = obj.getString( ("region") );
                 BigSeat a = new BigSeat(id,row,num,occ,region);
-                insert(a);
+                insert(a,time,movie);
             }
 
         }catch(JSONException e){
