@@ -54,6 +54,9 @@ public class conditional_booking1 extends AppCompatActivity {
                             intent.putExtra("assign", checkassign.isChecked());
                             intent.putExtra("assignrow", checkassignrow.isChecked());
                             intent.putExtra("continuity", checkcontinue.isChecked());
+                                intent.putExtra("region", region);
+                                intent.putExtra("row", row);
+
                             //把字串傳到第二個Activity
                             startActivity(intent);}
 
@@ -67,6 +70,8 @@ public class conditional_booking1 extends AppCompatActivity {
                                     intent.putExtra("assign", checkassign.isChecked());
                                     intent.putExtra("assignrow", checkassignrow.isChecked());
                                     intent.putExtra("continuity", checkcontinue.isChecked());
+                                intent.putExtra("region", region);
+                                intent.putExtra("row", row);
                                     //把字串傳到第二個Activity
                                     startActivity(intent);}
 
