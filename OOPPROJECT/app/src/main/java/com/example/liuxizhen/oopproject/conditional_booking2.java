@@ -52,7 +52,7 @@ public class conditional_booking2 extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     try{
-                        if (!"請選擇區域".equals(region_spinner.getSelectedItem().toString())) {
+                        if ("請選擇區域".equals(region_spinner.getSelectedItem().toString())) {
                             throw new ourException( "有問題尚未回答" );
                         }
                         if(Boolean.parseBoolean(assignrow)){
