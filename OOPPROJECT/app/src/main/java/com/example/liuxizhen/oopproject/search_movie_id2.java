@@ -5,15 +5,21 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class search_movie_id2 extends AppCompatActivity {
     private Button confirmation;
+    private TextView result;
+    private  String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_movie_id2);
         confirmation = (Button) findViewById(R.id.confirmation);
+        result = (TextView) findViewById(R.id.search_movie_ID_result) ;
+        Bundle bundle = this.getIntent().getExtras();
+        id=bundle.getString("movieid");
 
 
         confirmation.setOnClickListener(new View.OnClickListener() {
