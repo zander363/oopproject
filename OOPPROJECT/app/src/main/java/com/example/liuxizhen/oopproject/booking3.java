@@ -85,6 +85,33 @@ public class booking3 extends AppCompatActivity {
 
                 );
 
+                if(Base.moviesList.get( Integer.parseInt( movieorder ) ).determine_theater()=="大廳")
+                {Integer i;
+
+                    OOPBigSeat oopBigSeat=new OOPBigSeat(context,new ourtime(time),Base.moviesList.get( Integer.parseInt( movieorder ) ).moviename);
+
+                    for(i=0;!oopBigSeat.get(i).occupied;i++){}
+
+                    BigSeat b = oopBigSeat.get(i);
+
+                    Ticket a =new Ticket(user.id,b.seatid,Base.moviesList.get( Integer.parseInt( movieorder ) ).id,new ourtime(time));
+                    oopticket.insert(a);
+                }
+                else{
+                    Integer i;
+
+                    OOPSmallSeat oopSmallSeat=new OOPSmallSeat(context,new ourtime(time),Base.moviesList.get( Integer.parseInt( movieorder ) ).moviename);
+
+                    for(i=0;!oopSmallSeat.get(i).occupied;i++){}
+
+                    SmallSeat b = oopSmallSeat.get(i);
+
+                    Ticket a =new Ticket(user.id,b.seatid,Base.moviesList.get( Integer.parseInt( movieorder ) ).id,new ourtime(time));
+                    oopticket.insert(a);
+
+                }
+
+
             }
 
         }catch(Exception e){
