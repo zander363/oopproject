@@ -63,7 +63,7 @@ public class OOPTicket {
 	}
 
 	public Ticket getRecord(Cursor cursor) {
-		Ticket result = new Ticket(  cursor.getString( 1 ), cursor.getString( 2 ), cursor.getString( 3 ), new ourtime( cursor.getString( 4 ) ) );
+		Ticket result = new Ticket(  Integer.parseInt(cursor.getString( 1 )), cursor.getString( 2 ), cursor.getString( 3 ), new ourtime( cursor.getString( 4 ) ) );
 		return result;
 	}
 
