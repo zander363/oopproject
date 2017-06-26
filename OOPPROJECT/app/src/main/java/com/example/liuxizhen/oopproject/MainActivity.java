@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             search = (ImageButton) findViewById( R.id.search );
             oopuser = new OOPUser(this);
             helper = new UserDBHelper(this, "oop.movie", null, 1);
+            //Toast.makeText(MainActivity.this, Integer.toString(  oopuser.getCount()), Toast.LENGTH_LONG).show();
             if (oopuser.getCount() == 0) {
                 oopuser.connect();
             }
