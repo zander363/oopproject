@@ -28,22 +28,25 @@ import okhttp3.Response;
  */
 
 public class OOPBigSeat {
-    public static String TABLE_NAME="bigseat";
+    public static final String TABLE_NAME="bigseat";
 
     public static final String KEY_ID= "_id";
 
+    public static final String MOVIE_COLUMN="movie";
+    public static final String TIME_COLUMN="time";
     public static final String ROW_COLUMN= "row";
     public static final String NUM_COLUMN= "seatnum";
     public static final String OCC_COLUMN= "occupied";
     public static final String REGION_COLUMN= "region";
-    public String CREATE_TABLE="CREATE TABLE IF NOT EXISTS "+TABLE_NAME+" ("+KEY_ID+" TEXT PRIMARY KEY AUTOINCREMENT, "+ROW_COLUMN+" TEXT NOT NULL, "+NUM_COLUMN+" INTEGER NOT NULL"+OCC_COLUMN+" TEXT NOT NULL)";
+    public static final String CREATE_TABLE="CREATE TABLE IF NOT EXISTS "+TABLE_NAME+" ("+KEY_ID+" TEXT PRIMARY KEY AUTOINCREMENT, "
+            +MOVIE_COLUMN+" TEXT NOT NULL, "+TIME_COLUMN+" TEXT NOT NULL, "
+            +ROW_COLUMN+" TEXT NOT NULL, "+NUM_COLUMN+" INTEGER NOT NULL"+OCC_COLUMN+" TEXT NOT NULL)";
     private SQLiteDatabase db;
 
     public static ArrayList<User> usersList=new ArrayList<>();
     static OkHttpClient client = new OkHttpClient();
 
-    public OOPBigSeat(Context context, String movie, ourtime time){
-        TABLE_NAME=movie+time.toString();
+    public OOPBigSeat(Context context){
         db=UserDBHelper.getDatabase(context);
     }
 
@@ -70,7 +73,7 @@ public class OOPBigSeat {
     public BigSeat get(int id){
         BigSeat seat=null;
 
-        String where=KEY_ID+" = \'"+id;
+        String where=KEY_ID+" = '"+id;
 
         Cursor result=db.query(TABLE_NAME,null,where,null,null,null,null,null);
 
@@ -81,10 +84,12 @@ public class OOPBigSeat {
         result.close();
         return seat;
     }
-    public BigSeat insert(BigSeat seat) {
+    public BigSeat insert(BigSeat seat,ourtime time,String movie) {
         ContentValues cv = new ContentValues();
 
         cv.put(KEY_ID, seat.seatid);
+        cv.put(MOVIE_COLUMN, movie);
+        cv.put(TIME_COLUMN, time.toString());
         cv.put(ROW_COLUMN, seat.row);
         cv.put(NUM_COLUMN, seat.seatNum);
         cv.put(OCC_COLUMN, seat.occupied);

@@ -44,8 +44,8 @@ public class booking3 extends AppCompatActivity {
             age = bundle.getString( "age" );
             movieorder = bundle.getString( "movieorder" );
 
-            //User user=oopuser.get(name,Integer.parseInt(age));
-            User user=oopuser.getAll().get(0);
+            User user=oopuser.get(name,Integer.parseInt(age));
+            //User user=oopuser.getAll().get(0);
             //Ticket(user.id,time)
 
             //oopticket.insert();

@@ -45,7 +45,7 @@ public class OOPUser {
 	public User insert(User user){
 		ContentValues cv=new ContentValues();
 
-		cv.put(NAME_COLUMN,user.id);
+		cv.put(NAME_COLUMN,user.name);
 		cv.put(AGE_COLUMN,user.age);
 		long id=db.insert(TABLE_NAME,null,cv);
 		user.id=(int)id;
@@ -80,7 +80,7 @@ public class OOPUser {
 	}
 
 	public User getRecord(Cursor cursor){
-		User result=new User(cursor.getInt(1),cursor.getString(0),cursor.getInt(2));
+		User result=new User(cursor.getInt(0),cursor.getString(1),cursor.getInt(2));
 		return result;
 	}
 
@@ -89,6 +89,9 @@ public class OOPUser {
 		Cursor cursor=db.rawQuery("SELECT * FROM "+TABLE_NAME,null);
 		return cursor.getCount();
 
+	}
+	public boolean deleteAll(){
+		return db.delete(TABLE_NAME, null , null) > 0;
 	}
 
 
