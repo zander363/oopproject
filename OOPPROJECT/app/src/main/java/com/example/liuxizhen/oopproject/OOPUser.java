@@ -87,9 +87,8 @@ public class OOPUser {
 	public int getCount(){
 		int result =0;
 		Cursor cursor=db.rawQuery("SELECT COUNT(*) FROM"+TABLE_NAME,null);
-		while(cursor.moveToNext()){
-			result=cursor.getInt(0);
-		}
+		result=cursor.getCount();
+
 		return result;
 	}
 
