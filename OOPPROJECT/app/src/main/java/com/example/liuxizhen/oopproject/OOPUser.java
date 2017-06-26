@@ -86,7 +86,7 @@ public class OOPUser {
 
 	public int getCount(){
 
-		Cursor cursor=db.rawQuery("SELECT * FROM"+TABLE_NAME,null);
+		Cursor cursor=db.rawQuery("SELECT * FROM ["+TABLE_NAME+']',null);
 		return cursor.getCount();
 
 	}
