@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class OOPUser {
-	public static final String TABLE_NAME="user";
+	public static final String TABLE_NAME="[user]";
 	
 	public static final String KEY_ID= "_id";
 
