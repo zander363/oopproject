@@ -22,6 +22,7 @@ public class conditional_booking1 extends AppCompatActivity {
     private String region="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        try{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.conditional_booking1);
         confirmation = (Button) findViewById(R.id.confirmation);
@@ -53,6 +54,9 @@ public class conditional_booking1 extends AppCompatActivity {
                             intent.putExtra("assign", checkassign.isChecked());
                             intent.putExtra("assignrow", checkassignrow.isChecked());
                             intent.putExtra("continuity", checkcontinue.isChecked());
+                                intent.putExtra("region", region);
+                                intent.putExtra("row", row);
+
                             //把字串傳到第二個Activity
                             startActivity(intent);}
 
@@ -66,6 +70,8 @@ public class conditional_booking1 extends AppCompatActivity {
                                     intent.putExtra("assign", checkassign.isChecked());
                                     intent.putExtra("assignrow", checkassignrow.isChecked());
                                     intent.putExtra("continuity", checkcontinue.isChecked());
+                                intent.putExtra("region", region);
+                                intent.putExtra("row", row);
                                     //把字串傳到第二個Activity
                                     startActivity(intent);}
 
@@ -146,5 +152,10 @@ public class conditional_booking1 extends AppCompatActivity {
         }catch(Exception e){
             Toast.makeText(conditional_booking1.this,e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-    }
+    }catch(Exception e){
+            Toast.makeText(conditional_booking1.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
 }
+}
+
+
