@@ -15,6 +15,7 @@ public class search_movie_id2 extends AppCompatActivity {
         setContentView(R.layout.search_movie_id2);
         confirmation = (Button) findViewById(R.id.confirmation);
 
+
         confirmation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
