@@ -27,7 +27,7 @@ public class search_movie_id2 extends AppCompatActivity {
         boolean exist=false;
         int i;
         for(i=0;i<Base.moviesList.size();i++){
-            if(Base.moviesList.get(i).id==id){
+            if(Base.moviesList.get(i).id.equals(id)){
                 exist=true;
                 break;
             }

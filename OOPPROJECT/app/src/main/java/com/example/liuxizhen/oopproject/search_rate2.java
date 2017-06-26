@@ -26,6 +26,7 @@ public class search_rate2 extends AppCompatActivity {
 
         // Capture the layout's TextView and set the string as its text
         TextView textView = (TextView) findViewById(R.id.textView);
+        TextView search_rate_result = (TextView) findViewById(R.id.search_rate_result);
         textView.setText("評分高於"+message);
         ArrayList<basicClass.Movie> movies=new ArrayList<>();
         confirmation = (Button) findViewById(R.id.confirmation); boolean exist=false;
@@ -42,10 +43,10 @@ public class search_rate2 extends AppCompatActivity {
             for(i=0; i< movies.size(); i++) {
                 text += movies.get(i).moviename+"\n";
             }
-            textView.setText(text);
+            search_rate_result.setText(text);
         }
         else{
-            textView.setText("查無此號");
+            search_rate_result.setText("查無此號");
         }
 
         confirmation.setOnClickListener(new View.OnClickListener() {
