@@ -43,7 +43,7 @@ public class OOPSmallSeat {
 	public static ArrayList<User> usersList=new ArrayList<>();
 	static OkHttpClient client = new OkHttpClient();
 
-	public OOPSmallSeat(Context context,String movie,ourtime time){
+	public OOPSmallSeat(Context context,ourtime time,String movie){
 		db=UserDBHelper.getDatabase(context);
 	}
 

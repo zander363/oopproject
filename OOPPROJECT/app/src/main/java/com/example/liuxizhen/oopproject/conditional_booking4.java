@@ -91,7 +91,7 @@ public class conditional_booking4 extends AppCompatActivity {
                 if(Base.moviesList.get( Integer.parseInt( movieorder ) ).determine_theater()=="大廳")
                 {Integer i;
 
-                    OOPBigSeat oopBigSeat=new OOPBigSeat(context);
+                    OOPBigSeat oopBigSeat=new OOPBigSeat(context,new ourtime(time),Base.moviesList.get( Integer.parseInt( movieorder ) ).moviename);
 
                     for(i=0;!oopBigSeat.get(i).occupied;i++){}
 
@@ -103,7 +103,7 @@ public class conditional_booking4 extends AppCompatActivity {
                 else{
                     Integer i;
 
-                    OOPSmallSeat oopSmallSeat=new OOPSmallSeat(context);
+                    OOPSmallSeat oopSmallSeat=new OOPSmallSeat(context,new ourtime(time),Base.moviesList.get( Integer.parseInt( movieorder ) ).moviename);
 
                     for(i=0;!oopSmallSeat.get(i).occupied;i++){}
 
