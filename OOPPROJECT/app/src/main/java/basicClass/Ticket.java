@@ -1,18 +1,18 @@
 package basicClass;
 
 public class Ticket{
-	public String userID;
+	public int userID;
 	public String movieID;
 	public String seatID;
 	public ourtime time;
 	public Ticket(){
-		userID="";
+		userID=0;
 		movieID="";
 		seatID="";
 		time=new ourtime();
 
 	}
-	public Ticket(String userID,String movieID,String seatID,ourtime time){
+	public Ticket(int userID,String movieID,String seatID,ourtime time){
 		this.seatID=seatID;
 		this.movieID=movieID;
 		this.userID=userID;

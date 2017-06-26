@@ -46,7 +46,7 @@ public class OOPBigSeat {
     public static ArrayList<User> usersList=new ArrayList<>();
     static OkHttpClient client = new OkHttpClient();
 
-    public OOPBigSeat(Context context){
+    public OOPBigSeat(Context context,ourtime time,String movie){
         db=UserDBHelper.getDatabase(context);
     }
 

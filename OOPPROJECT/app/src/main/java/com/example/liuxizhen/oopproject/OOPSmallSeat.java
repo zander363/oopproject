@@ -43,7 +43,7 @@ public class OOPSmallSeat {
 	public static ArrayList<User> usersList=new ArrayList<>();
 	static OkHttpClient client = new OkHttpClient();
 
-	public OOPSmallSeat(Context context,String movie,ourtime time){
+	public OOPSmallSeat(Context context,ourtime time,String movie){
 		db=UserDBHelper.getDatabase(context);
 	}
 
@@ -94,6 +94,7 @@ public class OOPSmallSeat {
 		cv.put(TIME_COLUMN, time.toString());
 		return seat;
 	}
+
 	public List<SmallSeat> getAll() {
 		List<SmallSeat> result = new ArrayList<>();
 		Cursor cursor = db.query(
