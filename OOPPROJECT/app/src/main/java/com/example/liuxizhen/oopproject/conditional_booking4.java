@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import basicClass.User;
+import basicClass.*;
 import basicMethod.Base;
 
 public class conditional_booking4 extends AppCompatActivity {
@@ -86,6 +87,32 @@ public class conditional_booking4 extends AppCompatActivity {
                                 "名字：" + name + "\n"
 
                 );
+
+                if(Base.moviesList.get( Integer.parseInt( movieorder ) ).determine_theater()=="大廳")
+                {Integer i;
+
+                    OOPBigSeat oopBigSeat=new OOPBigSeat(context);
+
+                    for(i=0;!oopBigSeat.get(i).occupied;i++){}
+
+                    BigSeat b = oopBigSeat.get(i);
+
+                Ticket a =new Ticket(user.id,b.seatid,Base.moviesList.get( Integer.parseInt( movieorder ) ).id,new ourtime(time));
+                    oopticket.insert(a);
+                }
+                else{
+                    Integer i;
+
+                    OOPSmallSeat oopSmallSeat=new OOPSmallSeat(context);
+
+                    for(i=0;!oopSmallSeat.get(i).occupied;i++){}
+
+                    SmallSeat b = oopSmallSeat.get(i);
+
+                    Ticket a =new Ticket(user.id,b.seatid,Base.moviesList.get( Integer.parseInt( movieorder ) ).id,new ourtime(time));
+                    oopticket.insert(a);
+
+                }
 
 
 

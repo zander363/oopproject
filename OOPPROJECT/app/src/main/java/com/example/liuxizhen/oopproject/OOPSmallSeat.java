@@ -94,6 +94,7 @@ public class OOPSmallSeat {
 		cv.put(TIME_COLUMN, time.toString());
 		return seat;
 	}
+
 	public List<SmallSeat> getAll() {
 		List<SmallSeat> result = new ArrayList<>();
 		Cursor cursor = db.query(
