@@ -80,8 +80,8 @@ public class booking3 extends AppCompatActivity {
                         "電影名稱：" + movie + "\n\n" +
                                 "場次：" + time + "\n\n" +
                                 "張數：" + number_sheets + "\n\n" +
-                                "年齡：" + age + "\n\n" +
-                                "名字：" + name + "\n"
+                                "年齡：" + user.age + "\n\n" +
+                                "名字：" + user.name + "\n"
 
                 );
 

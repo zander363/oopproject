@@ -55,7 +55,7 @@ public class OOPUser {
 	public User get(String name,int age){
 		User user=null;
 
-		String where=NAME_COLUMN+" = \'"+name+"\' AND "+AGE_COLUMN+" = "+age;
+		String where=NAME_COLUMN+" = '"+name+"' AND "+AGE_COLUMN+" = "+age;
 
 		Cursor result=db.query(TABLE_NAME,null,where,null,null,null,null,null);
 
@@ -80,13 +80,13 @@ public class OOPUser {
 	}
 
 	public User getRecord(Cursor cursor){
-		User result=new User(cursor.getString(1),cursor.getInt(2),cursor.getInt(0));
+		User result=new User(cursor.getInt(1),cursor.getString(0),cursor.getInt(2));
 		return result;
 	}
 
 	public int getCount(){
 
-		Cursor cursor=db.rawQuery("SELECT * FROM ["+TABLE_NAME+']',null);
+		Cursor cursor=db.rawQuery("SELECT * FROM "+TABLE_NAME,null);
 		return cursor.getCount();
 
 	}
@@ -120,7 +120,7 @@ public class OOPUser {
 				int index = obj.getInt("index");
 				String name=obj.getString(("name"));
 				int age=obj.getInt("age");
-				User a = new User(name,age,index);
+				User a = new User(index,name,age);
 				usersList.add( a );
 				insert(a);
 			}

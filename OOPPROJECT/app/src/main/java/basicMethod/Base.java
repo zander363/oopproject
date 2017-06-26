@@ -35,7 +35,7 @@ public class Base{
 	 */
 	public static void loadMovie(){
 
-
+		moviesList.clear();
 		Request request = new Request.Builder()
 				.url("https://raw.githubusercontent.com/b04505009/sample_json/master/movie_info.json")
 				.build();
