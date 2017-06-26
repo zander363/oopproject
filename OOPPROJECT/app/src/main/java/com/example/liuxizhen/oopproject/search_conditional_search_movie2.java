@@ -35,7 +35,7 @@ public class search_conditional_search_movie2 extends AppCompatActivity {
         assignrow = bundle.getBoolean( "assignrow" );
 
 
-        Toast.makeText(search_conditional_search_movie2.this, Boolean.toString( assignregion ) , Toast.LENGTH_LONG).show();
+
 
 
         confirmation.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +99,7 @@ public class search_conditional_search_movie2 extends AppCompatActivity {
 
 
         }
-        if(assignregion==true && assignrow==false){
+        else if(assignregion==true && assignrow==false){
             String[] row = new String[1];
             row[0]="";
 
