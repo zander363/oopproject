@@ -21,6 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
+import basicClass.*;
 
 import basicMethod.Base;
 import android.database.sqlite.SQLiteDatabase;
@@ -36,14 +37,13 @@ public class MainActivity extends AppCompatActivity {
     private boolean doubleBackToExitPressedOnce = false;
     private UserDBHelper helper;
     OOPUser oopuser;
-
+    private Movie[] movies;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         try {
-
             Base.loadMovie();
             super.onCreate( savedInstanceState );
             setContentView( R.layout.activity_main );
