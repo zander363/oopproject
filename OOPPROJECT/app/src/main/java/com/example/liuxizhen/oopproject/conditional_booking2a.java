@@ -51,7 +51,7 @@ public class conditional_booking2a extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try{
-                    if (!"請選擇排".equals(row_spinner.getSelectedItem().toString())) {
+                    if ("請選擇排".equals(row_spinner.getSelectedItem().toString())) {
                         throw new ourException( "有問題尚未回答" );
                     }
                 Intent intent = new Intent();

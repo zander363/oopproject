@@ -18,8 +18,8 @@ public class conditional_booking1 extends AppCompatActivity {
     private CheckBox checkassign;
     private CheckBox checkassignrow;
     private int movieorder;
-    private String row;
-    private String region;
+    private String row="";
+    private String region="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +79,8 @@ public class conditional_booking1 extends AppCompatActivity {
                         intent.putExtra("continue", checkcontinue.isChecked());
                         intent.putExtra("assignrow", checkassignrow.isChecked());
                         intent.putExtra("assign", checkassign.isChecked());
+                        intent.putExtra("region", region);
+                        intent.putExtra("row", row);
                         //把字串傳到第二個Activity
                         startActivity(intent);
                     }
