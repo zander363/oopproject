@@ -18,19 +18,19 @@ public class SmallSeatDBHelper extends SQLiteOpenHelper {
 
     public static SQLiteDatabase getDatabase(Context context) {
         if (database == null || !database.isOpen()) {
-            database = new TicketDBHelper(context, DATABASE_NAME,
+            database = new SmallSeatDBHelper(context, DATABASE_NAME,
                     null, VERSION).getWritableDatabase();
         }
         return database;
     }
         @Override
         public void onCreate(SQLiteDatabase db) {
-            db.execSQL(OOPTicket.CREATE_TABLE);
+            db.execSQL(OOPSmallSeat.CREATE_TABLE);
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL("DROP TABLE IF EXISTS " + OOPTicket.TABLE_NAME);
+            db.execSQL("DROP TABLE IF EXISTS " + OOPSmallSeat.TABLE_NAME);
 
             onCreate(db);
         }

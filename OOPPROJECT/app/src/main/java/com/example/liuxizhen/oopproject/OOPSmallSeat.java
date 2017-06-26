@@ -24,14 +24,16 @@ import java.util.ArrayList;
 
 public class OOPSmallSeat {
 
+
 	public String TABLE_NAME="smallseat";
+
 	
 	public static final String KEY_ID= "_id";
 
 	public static final String ROW_COLUMN= "row";
 	public static final String NUM_COLUMN= "seatnum";
 	public static final String OCC_COLUMN= "occupied";
-	public String CREATE_TABLE="CREATE TABLE IF NOT EXISTS "+TABLE_NAME+" ("+KEY_ID+" TEXT PRIMARY KEY AUTOINCREMENT, "+ROW_COLUMN+" TEXT NOT NULL, "+NUM_COLUMN+" INTEGER NOT NULL"+OCC_COLUMN+" TEXT NOT NULL)";
+	public static String CREATE_TABLE="CREATE TABLE IF NOT EXISTS "+TABLE_NAME+" ("+KEY_ID+" TEXT PRIMARY KEY AUTOINCREMENT, "+ROW_COLUMN+" TEXT NOT NULL, "+NUM_COLUMN+" INTEGER NOT NULL"+OCC_COLUMN+" TEXT NOT NULL)";
 	private SQLiteDatabase db;
 
 	public static ArrayList<User> usersList=new ArrayList<>();
@@ -64,7 +66,7 @@ public class OOPSmallSeat {
 	public SmallSeat get(int id){
 		SmallSeat seat=null;
 
-		String where=KEY_ID+" = \'"+id;
+		String where=KEY_ID+" =  "+id;
 
 		Cursor result=db.query(TABLE_NAME,null,where,null,null,null,null,null);
 
