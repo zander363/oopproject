@@ -90,10 +90,7 @@ public class booking3 extends AppCompatActivity {
 
                     OOPBigSeat oopBigSeat=new OOPBigSeat(context,new ourtime(time),Base.moviesList.get( Integer.parseInt( movieorder ) ).moviename);
 
-<<<<<<< HEAD
 
-=======
->>>>>>> dc7e427e47a6b8dc3d1ae7a5e38b3b2221d7179b
                     for(i=0;!oopBigSeat.get(i).occupied;i++){}
 
                     BigSeat b = oopBigSeat.get(i);

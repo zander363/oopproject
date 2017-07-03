@@ -35,14 +35,14 @@ public class search_time2 extends AppCompatActivity {
 
 
             for(i=0; i< Base.moviesList.size(); i++){
-                if(new ourtime(start).isearlierto((Base.moviesList.get(i)).time[0])){
+                if(new ourtime(start)!=null){
                     movies.add(Base.moviesList.get(i));
                 }
             }
         }
         if(end!=null){
             for(i=0; i< Base.moviesList.size(); i++) {
-                if (new ourtime(end).isearlierto((Base.moviesList.get(i)).time[0])) {
+                if (new ourtime(end)!=null) {
                     movies.remove(i);
                 }
             }
