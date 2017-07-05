@@ -165,6 +165,7 @@ public class OOPSmallSeat {
 
 			ourtime time=null;
 			String movie= null;
+			//add two for-each loop in here -> for each movie and time
 			for (int i = 0; i < array.length(); i++) {
 				JSONObject obj = array.getJSONObject(i);
 
