@@ -41,7 +41,7 @@ public class ourtime {
         if(this.minute/10==0)
             minute="0"+this.minute;
 
-        return hour + ":" + minute;
+        return hour + "：" + minute;
     }
 
     public int getHour() {

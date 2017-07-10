@@ -18,8 +18,11 @@ public class conditional_booking1 extends AppCompatActivity {
     private CheckBox checkassign;
     private CheckBox checkassignrow;
     private int movieorder;
+    private String row="";
+    private String region="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        try{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.conditional_booking1);
         confirmation = (Button) findViewById(R.id.confirmation);
@@ -42,17 +45,20 @@ public class conditional_booking1 extends AppCompatActivity {
                         }
                         else{
                             if(checkassign.isChecked()){
-                            Intent intent = new Intent();
-                            intent.setClass(conditional_booking1.this, conditional_booking2.class);
-                            intent.putExtra("number_sheets", number_input.getText().toString());
-                            intent.putExtra("movie", movies_spinner.getSelectedItem().toString());
-                            intent.putExtra("time", time_spinner.getSelectedItem().toString());
-                            intent.putExtra("movieorder", Integer.toString(movieorder));
-                            intent.putExtra("assign", checkassign.isChecked());
-                            intent.putExtra("assignrow", checkassignrow.isChecked());
-                            intent.putExtra("continuity", checkcontinue.isChecked());
-                            //把字串傳到第二個Activity
-                            startActivity(intent);}
+                                Intent intent = new Intent();
+                                intent.setClass(conditional_booking1.this, conditional_booking2.class);
+                                intent.putExtra("number_sheets", number_input.getText().toString());
+                                intent.putExtra("movie", movies_spinner.getSelectedItem().toString());
+                                intent.putExtra("time", time_spinner.getSelectedItem().toString());
+                                intent.putExtra("movieorder", Integer.toString(movieorder));
+                                intent.putExtra("assign", checkassign.isChecked());
+                                intent.putExtra("assignrow", checkassignrow.isChecked());
+                                intent.putExtra("continuity", checkcontinue.isChecked());
+                                intent.putExtra("region", region);
+                                intent.putExtra("row", row);
+                                //把字串傳到第二個Activity
+                                startActivity(intent);
+                            }
 
                             else if(checkassignrow.isChecked()){
                                     Intent intent = new Intent();
@@ -64,6 +70,8 @@ public class conditional_booking1 extends AppCompatActivity {
                                     intent.putExtra("assign", checkassign.isChecked());
                                     intent.putExtra("assignrow", checkassignrow.isChecked());
                                     intent.putExtra("continuity", checkcontinue.isChecked());
+                                intent.putExtra("region", region);
+                                intent.putExtra("row", row);
                                     //把字串傳到第二個Activity
                                     startActivity(intent);}
 
@@ -77,6 +85,8 @@ public class conditional_booking1 extends AppCompatActivity {
                         intent.putExtra("continue", checkcontinue.isChecked());
                         intent.putExtra("assignrow", checkassignrow.isChecked());
                         intent.putExtra("assign", checkassign.isChecked());
+                        intent.putExtra("region", region);
+                        intent.putExtra("row", row);
                         //把字串傳到第二個Activity
                         startActivity(intent);
                     }
@@ -88,7 +98,6 @@ public class conditional_booking1 extends AppCompatActivity {
 
 
 
-        try{
             String[] movies = new String[Base.moviesList.size()+1];
             movies[0]="請選擇電影";
             for(int i=0;i<Base.moviesList.size();i++){
@@ -139,8 +148,10 @@ public class conditional_booking1 extends AppCompatActivity {
 
                 }
             }));
-        }catch(Exception e){
+    }catch(Exception e){
             Toast.makeText(conditional_booking1.this,e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-    }
 }
+}
+
+

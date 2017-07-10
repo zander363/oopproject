@@ -30,7 +30,6 @@ public class search_conditional_search_movie1 extends AppCompatActivity {
 
 
 
-
         confirmation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,6 +39,8 @@ public class search_conditional_search_movie1 extends AppCompatActivity {
                         Intent intent = new Intent();
                         intent.setClass(search_conditional_search_movie1.this, search_conditional_search_movie2.class);
                         intent.putExtra("number_sheets", editText.getText().toString());
+                        intent.putExtra("assignregion", checkBox2.isChecked());
+                        intent.putExtra("assignrow", checkBox3.isChecked());
 
                         startActivity(intent);
                     }
@@ -47,6 +48,8 @@ public class search_conditional_search_movie1 extends AppCompatActivity {
                         Intent intent = new Intent();
                         intent.setClass(search_conditional_search_movie1.this, search_conditional_search_movie3.class);
                         intent.putExtra("number_sheets", editText.getText().toString());
+                        intent.putExtra("assignregion", checkBox2.isChecked());
+                        intent.putExtra("assignrow", checkBox3.isChecked());
 
                         startActivity(intent);
                     }

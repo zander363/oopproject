@@ -35,7 +35,7 @@ public class Base{
 	 */
 	public static void loadMovie(){
 
-
+		moviesList.clear();
 		Request request = new Request.Builder()
 				.url("https://raw.githubusercontent.com/b04505009/sample_json/master/movie_info.json")
 				.build();
@@ -63,6 +63,7 @@ public class Base{
 				JSONObject obj = array.getJSONObject(i);
 				String movie = obj.getString("movie").trim();
 				String id = obj.getString("id").trim();
+				double rate =Double.parseDouble(obj.getString("score").substring(0,4));
 				ourtime[] time = new ourtime[obj.getString("time").split( "、" ).length];
 				String timeLogStr="";
 				for(int j=0; j<obj.getString("time").split( "、" ).length; j++){
@@ -72,7 +73,7 @@ public class Base{
 				int level = Base.classificationToLevel(obj.getString("classification").trim());
 				String place = obj.getString("hall").trim();
 				Log.d("JSON:",movie+"/"+id+"/"+timeLogStr+"/"+level+"/"+place);
-				Movie t = new Movie(movie, id, time, level, place);
+				Movie t = new Movie(movie, id, time, level, place,rate);
 				moviesList.add(t);
 			}
 		} catch (JSONException e) {

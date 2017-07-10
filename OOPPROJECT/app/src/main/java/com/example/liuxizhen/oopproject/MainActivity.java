@@ -10,6 +10,7 @@ import android.widget.*;
 
 import java.io.IOException;
 
+import basicClass.User;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -20,8 +21,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
+import basicClass.*;
 
 import basicMethod.Base;
+import android.database.sqlite.SQLiteDatabase;
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -31,16 +35,15 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton search;
     //判斷離開的flag，設定成全域變數
     private boolean doubleBackToExitPressedOnce = false;
-
-    private MyDBHelper helper;
+    private UserDBHelper helper;
+    OOPUser oopuser;
+    private Movie[] movies;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        helper = new MyDBHelper(this, "oop.db", null, 1);
 
         try {
-
             Base.loadMovie();
             super.onCreate( savedInstanceState );
             setContentView( R.layout.activity_main );
@@ -48,6 +51,12 @@ public class MainActivity extends AppCompatActivity {
             refund = (ImageButton) findViewById( R.id.refund );
             conditional_booking = (ImageButton) findViewById( R.id.conditional_booking );
             search = (ImageButton) findViewById( R.id.search );
+            oopuser = new OOPUser(this);
+            helper = new UserDBHelper(this, "oop.movie", null, 1);
+            //Toast.makeText(MainActivity.this, Integer.toString(  oopuser.getCount()), Toast.LENGTH_LONG).show();
+            if (oopuser.getCount() == 0) {
+                oopuser.connect();
+            }
 
             if (this.getIntent().getExtras() != null) {
                 Bundle bundle = this.getIntent().getExtras();
@@ -94,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             } );
         }catch(Exception e){
-            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
     }
@@ -119,6 +128,3 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-
-
-

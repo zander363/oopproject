@@ -8,20 +8,23 @@ public class Movie{
 	public ourtime[] time;
 	public int level;
 	public String place;
+	public double rate;
 
 	public Movie() {
 		id="";
 		time = new ourtime[0];
 		level=0;
 		place="";
+		rate=0;
 
     };
-	public Movie(String moviename,String id,ourtime[] time,int level,String place){
+	public Movie(String moviename,String id,ourtime[] time,int level,String place,Double rate){
 		this.moviename=moviename;
 		this.id=id;
 		this.time = time;
 		this.level=level;
 		this.place=place;
+		this.rate=rate;
 
     };
 	/**
@@ -31,8 +34,14 @@ public class Movie{
 	 *
 	 * @return String is mean the text suppose to show to user. 
 	 */
-	public String showInfo(){
-        return "ID:"+id+", time:"+time+", level:"+level+", place:"+place;
+	public String showInfo()
+	{
+		String text="ID:"+id+",\ntime:";
+		for(int i=0;i<time.length;i++){
+			text+=time[i].getinfo()+"  ";
+		}
+		text+=",\nlevel:"+level+", \nplace:"+place;
+		return text;
     }
     public String determine_theater(){
 		switch(this.place){

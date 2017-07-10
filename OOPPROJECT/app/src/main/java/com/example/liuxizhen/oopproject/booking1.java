@@ -27,6 +27,7 @@ public class booking1 extends AppCompatActivity {
         movies_spinner = (Spinner)findViewById(R.id.movies_spinner);
         time_spinner = (Spinner)findViewById(R.id.time_spinner);
 
+
         confirmation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
